@@ -1,0 +1,31 @@
+import { GameStore } from "../scripts/game.ts";
+
+let active_game = null;
+
+function on_mount(){ active_game = new game() }
+
+export default <div> Testing GameStore </div>;
+
+import test_block from "@test";
+
+test_block: {
+    
+    assert("Module loads correctly", GameStore != null)
+
+    assert_group("GamePlay", sequence, ()=>{
+        
+        const store = new GameStore([], 4,4);
+
+        assert(store.token_count == 16);
+        
+        assert(store.isTokenRevealed(1) == false);
+        
+        store.revealToken(1)
+
+        assert(store.isTokenRevealed(1) == true);
+
+        assert(store.isMatch(1,1) == true);
+
+        assert(!store.isMatch(1,99));
+     });
+}

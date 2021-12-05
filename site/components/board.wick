@@ -1,0 +1,14 @@
+import token from "./token.wick";
+
+import { tokens, grid_width, grid_height } from "@model";
+
+export default <div>
+
+    <container class=board 
+        data={tokens}
+        col={4}
+    >
+        <token/>
+    </container>
+
+</div>;

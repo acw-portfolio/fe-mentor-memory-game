@@ -1,0 +1,79 @@
+import m, { index,  val, REVEALED, MATCHED } from "@model";
+
+import {getActiveGame} from "../scripts/game.ts";
+
+const game = getActiveGame();
+
+const root = "@root";
+
+function ontransitionin(row, col, trs) {
+    root.style.top = row * 64 + "px";
+    root.style.left = col * 64 + "px";
+}
+
+function onarrange(row, col, trs) {
+    root.style.top = row * 64 + "px";
+    root.style.left = col * 64 + "px";
+}
+
+function ontransitionout(row, col, trs) {
+    root.style.top = row * 64 + "px";
+    root.style.left = col * 64 + "px";
+}
+
+async function click(){
+    if(!MATCHED){
+        game.revealToken(index)
+        game.addMatch(index);
+    }
+}
+
+function $R(REVEALED, MATCHED) {
+    if(REVEALED)
+        root.classList.add("REVEALED");
+    else
+        root.classList.remove("REVEALED");
+}
+
+function $M(REVEALED, MATCHED) {
+    if(MATCHED)
+        root.classList.add("MATCHED");
+    else
+        root.classList.remove("MATCHED");
+}
+
+export default <div onclick=click>
+    <span>{index}<br/>{val}</span>
+</div>;
+
+<style>
+    root {
+        position:absolute;
+        width:50px;
+        height:50px;
+        background-color:green;
+        color:white;
+        text-align:center;
+        border-radius:50px
+    }
+
+    root:hover {
+        cursor:pointer
+    }
+
+    root.REVEALED {
+        background:red;
+    }
+
+    root.MATCHED {
+        border: 2px solid black;
+    }
+
+    span {
+        display: none;
+    }
+
+    root.REVEALED span {
+        display: inline-block
+    }
+</style>;
