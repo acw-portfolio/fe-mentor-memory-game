@@ -12,6 +12,7 @@
   "dependencies": {
     "@candlelib/glow": "*",
     "@candlelib/spark": "^0.3.6",
-    "@candlelib/wick": "*"
+    "@candlelib/wick": "*",
+    "@candlelib/log": "*"
   }
 }
