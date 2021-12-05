@@ -151,6 +151,8 @@ export class GameStore implements ObservableModel {
                 logger.debug(`${token_index} & ${previous_token} match!`);
                 this.toggleTokenMATCHED(token_index);
                 this.toggleTokenMATCHED(previous_token);
+                this.revealToken(token_index);
+                this.revealToken(previous_token);
             } else {
                 logger.debug(`${token_index} & ${previous_token} do not match`);
                 await spark.sleep(500);

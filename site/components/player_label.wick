@@ -1,0 +1,32 @@
+export default <div>
+    <span class=name>Player 1</span>
+    <span class=score>5</span>
+</div>;
+
+<style>
+
+    root {
+        display:flex;
+        align-items:center;
+        width: 250px;
+        height: 70px;
+        background-color:#DFE7EC;
+        border-radius:10px;
+        box-sizing:border-box;
+        justify-content: space-between;
+        padding:20px;
+        margin: 0 20px;
+    }
+
+    .name {
+        color:#7191A5;
+        font-weight:700;
+    }
+
+    .score {
+        color:#304859;
+        font-size:32px;
+        font-weight:700;
+    }
+
+</style>

@@ -1,24 +1,44 @@
-import m, { index,  val, REVEALED, MATCHED } from "@model";
-
+import m, { index, val, REVEALED, MATCHED } from "@model";
 import {getActiveGame} from "../scripts/game.ts";
+import glow from "@candlelib/glow";
 
 const game = getActiveGame();
-
 const root = "@root";
+let half = game.grid_width / 2;
+let LOADED = false;
 
-function ontransitionin(row, col, trs) {
-    root.style.top = row * 64 + "px";
-    root.style.left = col * 64 + "px";
+function ontransitionin(row, col, trs, anim) {
+    root.style.top = (row * 90 - half * 90) + "px";
+    root.style.left = (col * 90 - half * 90) + "px";
+    const dur = Math.random() * 120 + 240;
+    const tic = Math.random() * 120 + row * 80 + col * 80;
+    anim({
+            obj:root,
+            opacity: [{tic:0,val:0}, {tic,val:0}, {tic:200 + tic, val:1}],
+             transform:[
+                {tic,val:`translateX(${(Math.random()*1000) -500}px)`},{tic:dur- 100 + tic,val:`translateX(0)`, eas:glow.easing.ease_out},
+                {tic,val:`translateY(${(Math.random()*100) -50}px)`},{tic:dur- 100 + tic,val:`translateY(0)`, eas:glow.easing.ease_out},
+            ] 
+        })
+    LOADED = true;
 }
 
 function onarrange(row, col, trs) {
-    root.style.top = row * 64 + "px";
-    root.style.left = col * 64 + "px";
+    root.style.top = (row * 90 - half * 90) + "px";
+    root.style.left = (col * 90 - half * 90) + "px";
 }
 
-function ontransitionout(row, col, trs) {
-    root.style.top = row * 64 + "px";
-    root.style.left = col * 64 + "px";
+function ontransitionout(row, col, trs, anim) {
+
+    const tic = Math.random() * 120 + row * 80 + col * 80;
+    anim({
+            obj:root,
+            opacity: [{tic:0,val:1}, {tic:200 + tic, val:0}],
+             transform:[
+                {tic:0,val:`translateX(0)`},{tic:dur- 100 + tic,val:`translateX(${(Math.random()*1000) -500}px)`, eas:glow.easing.ease_out},
+                {tic:0,val:`translateY(0)`},{tic:dur- 100 + tic,val:`translateY(${(Math.random()*100) -50}px)`, eas:glow.easing.ease_out},
+            ] 
+        })
 }
 
 async function click(){
@@ -28,52 +48,87 @@ async function click(){
     }
 }
 
-function $R(REVEALED, MATCHED) {
-    if(REVEALED)
-        root.classList.add("REVEALED");
-    else
-        root.classList.remove("REVEALED");
+function $R(REVEALED) {
+    if(REVEALED){
+        glow({
+            obj:root,
+            transform:[
+                {tic:0,val:`rotateZ(${(Math.random()*30) -15}deg)`},
+                {tic:0,val:"rotateX(180deg)"}, {tic:100,val:"rotateX(90deg)", eas:glow.easing.ease_out}, {tic:200,val:"rotateX(0)", eas:glow.easing.ease_out},
+                {tic:0,val:"translateZ(0)"}, {tic:130,val:"translateZ(30px)"}, {tic:200,val:"translateZ(0px)", eas:glow.easing.ease_out}
+            ]
+        }).play();
+        setTimeout(_=>root.classList.add("REVEALED"), 100);
+    } else {
+        glow({
+            obj:root,
+            transform:[
+                {tic:0,val:"rotateX(0deg)"}, {tic:100,val:"rotateX(90deg)"}, {tic:200,val:"rotateX(180deg)"},
+                {tic:0,val:"translateZ(0)"}, {tic:130,val:"translateZ(30px)"}, {tic:200,val:"translateZ(0px)", eas:glow.easing.ease_out}
+            ],
+        }).play();
+        setTimeout(_=>root.classList.remove("REVEALED"), 100);
+    }
 }
 
-function $M(REVEALED, MATCHED) {
+function $M(MATCHED) {
     if(MATCHED)
         root.classList.add("MATCHED");
     else
         root.classList.remove("MATCHED");
 }
 
-export default <div onclick=click>
-    <span>{index}<br/>{val}</span>
+export default <div onclick=click> 
+    <span class=val>{val}</span>
 </div>;
 
 <style>
     root {
+        user-select:none;
+        font-size: 2.5em;
+        line-height:2em;
         position:absolute;
-        width:50px;
-        height:50px;
-        background-color:green;
+        font-weight:bold;
+        width:82px;
+        height:82px;
+        background-color:#304859;
         color:white;
         text-align:center;
-        border-radius:50px
+        border-radius:50px;
+        z-index:0;
+        transition: background-color 120ms, box-shadow 500ms;
+        box-shadow: 0 0 2px rgba(0,0,0,0.2);
     }
 
     root:hover {
-        cursor:pointer
+        cursor:pointer;
+        background-color:#6395B8
     }
 
     root.REVEALED {
-        background:red;
+        background:#FDA214;
+        box-shadow: 0 0 8px rgba(0,0,0,0.3);
     }
 
     root.MATCHED {
-        border: 2px solid black;
+        background:#BCCED9;
+        box-shadow: none;
     }
 
-    span {
+    span.val {
         display: none;
     }
 
-    root.REVEALED span {
+    root.REVEALED span.val {
         display: inline-block
+    }
+
+    span.logo {
+        font-size: 0.5em;
+        display: inline-block
+    }
+
+    root.REVEALED span.logo {
+        display: none;
     }
 </style>;

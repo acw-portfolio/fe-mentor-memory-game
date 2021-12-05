@@ -1,11 +1,26 @@
+import gamefooter from "./components/gamefooter";
+import gameheader from "./components/gameheader";
+import board from "./components/board";
 import {createGame, getActiveGame} from "./scripts/game.ts";
 
 let game = null;
 
-import board from "./components/board.wick";
 
-function on_mount(){  game = getActiveGame() || createGame([],4,4); console.log(game) }
+function on_mount(){  game = getActiveGame() || createGame([],6,6); }
 
 export default <div>
+    <gameheader model={game}/>
     <board model={game}/>
+    <gamefooter model={game}/>
 </div>;
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    root {
+        font-family: "Atkinson Hyperlegible";
+        font-weight:normal;
+        display:flex;
+        flex-direction:column;
+    }
+</style>

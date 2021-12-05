@@ -1,0 +1,14 @@
+import player_label from "./player_label"
+export default <footer><player_label/><player_label/></footer>;
+
+<style>
+    root {
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        position:relative;
+        width:100vw;
+        height:15vh;
+        box-sizing:border-box;
+    }
+</style>;
