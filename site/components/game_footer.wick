@@ -110,9 +110,11 @@ export default <footer>
     }
 
     @media screen and (max-width:800px) {
-        root {
-            height:120px;
-        }
+        root { height:120px; }
+    }
+
+    @media screen and (max-height:900px) {
+        root { height:120px; }
     }
 
 

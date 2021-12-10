@@ -76,7 +76,12 @@ export default <header>
         .newgame { display:none; }
     }
 
-    @media screen and ( max-width: 500px) {    }
+    @media screen and ( max-height: 800px) {
+         root { padding: 20px 20px 0 20px; height:8vh }
+        .menu { display:unset; }
+        .restart { display:none; }
+        .newgame { display:none; }
+    }
                                                               
 
 </style>;

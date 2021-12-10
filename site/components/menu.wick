@@ -45,5 +45,11 @@ export default <nav>
     @media screen and ( max-width: 500px) {
         root {width: 350px }
     }
+
+    @media screen and ( max-heigth: 700px) {
+        root { padding-top:10px; padding-bottom:10px; }
+        h1 { margin : 5px}
+        h3 { margin : 5px}
+    }
 </style>;
 

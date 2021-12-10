@@ -53,4 +53,8 @@ export default <button class={active;"active"}></button>;
         background-color:#304859;
     }
 
+    @media screen and ( max-heigth: 700px) {
+        root { padding-top:5px; padding-bottom:5px; }
+    }
+
 </style>

@@ -21,18 +21,25 @@ const fa_targets = [
 
 function setSize(){
 
-    if(height < 701) {
-        let sz = half > 2?  height *0.12 : height *0.10;
+    if(height < 900) {
+        const val = Math.min(height, width);
+        let sz = half > 2?  val *0.12 : val *0.15;
         root.style.top = (r * sz - half * sz) + "px";
         root.style.left = (c * sz - half * sz) + "px";
+        root.style.width = val*0.135 + "px"
+        root.style.height = val*0.135 + "px"
     } else if(width < 600){
         let sz = half > 2?  width *0.16 : width *0.24;
         root.style.top = (r * sz - half * sz) + "px";
         root.style.left = (c * sz - half * sz) + "px";
+        root.style.width = ""
+        root.style.height = ""
     }else{
         let fs = half > 2?  95 : 140;
         root.style.top = (r * fs - half * fs) + "px";
         root.style.left = (c * fs - half * fs) + "px";
+        root.style.width = ""
+        root.style.height = ""
     }
 }
 
@@ -125,20 +132,19 @@ export default <div onclick=click class={1; half > 2 ? "small" : "large"  } >
         transition: background-color 120ms, box-shadow 500ms;
         box-shadow: 0 0 2px rgba(0,0,0,0.2);
         user-select: none;
+        border-radius:50%
     }
 
     root.large {
         font-size: 3em;
         width:118px;
         height:118px;
-        border-radius:59px;
     }
 
     root.small {
         font-size: 2.5em;
         width:82px;
         height:82px;
-        border-radius:41px;
     }
 
     root:hover {
@@ -186,17 +192,17 @@ export default <div onclick=click class={1; half > 2 ? "small" : "large"  } >
     }
 
     @media screen and ( max-width: 600px) {
-        root.large {width: 20vw; height: 20vw; font-size: 2.4em; border-radius:10vw }
+        root.large {width: 20vw; height: 20vw; font-size: 2.4em; }
         root.small {width: 14vw; height: 14vw; font-size: 2em; }
     }
 
     @media screen and ( max-width: 400px)  {
-        root.large {width: 20vw; height: 20vw; font-size: 2.4em; border-radius:10vw }
+        root.large {width: 20vw; height: 20vw; font-size: 2.4em; }
         root.small {width: 14vw; height: 14vw; font-size: 2em; }
     }
 
-    @media screen and ( max-height: 700px)  {
-        root.large {width: 14vh; height: 14vh; font-size: 2.4em; border-radius:10vw }
+    @media screen and ( max-height: 900px)  {
+        root.large {width: 14vh; height: 14vh; font-size: 2.4em; }
         root.small {width: 10vh; height: 10vh; font-size: 1.5em; }
     }
 </style>;
