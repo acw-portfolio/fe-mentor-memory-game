@@ -63,7 +63,7 @@ function $GAME_OVER(GAME_OVER){
 export default <app id="app">
     <head>
         <title>FE | Memory Game</title>
-        <link href="/css/all.min.css" type="text/css" rel="stylesheet"/>
+        <link href="../css/all.min.css" type="text/css" rel="stylesheet"/>
     </head>
     <div class=game>
         <gameheader model={game}/>
