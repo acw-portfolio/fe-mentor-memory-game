@@ -1,7 +1,7 @@
 import m, { index, val, REVEALED, MATCHED } from "@model";
 import {game, theme as t } from "@store";
 import glow from "@candlelib/glow";
-import {width} from "@session";
+import {width, height} from "@session";
 const root = "@root";
 let half = game.grid_width / 2;
 let LOADED = false;
@@ -20,7 +20,12 @@ const fa_targets = [
 
 
 function setSize(){
-if(width < 600){
+
+    if(height < 701) {
+        let sz = half > 2?  width *0.13 : width *0.16;
+        root.style.top = (r * sz - half * sz) + "px";
+        root.style.left = (c * sz - half * sz) + "px";
+    } else if(width < 600){
         let sz = half > 2?  width *0.16 : width *0.24;
         root.style.top = (r * sz - half * sz) + "px";
         root.style.left = (c * sz - half * sz) + "px";
@@ -47,7 +52,7 @@ function ontransitionin(row, col, trs, anim) {
     LOADED = true;
 }
 
-function $(width) { setSize();}
+function $(width, height) { setSize();}
 
 function ontransitionout(row, col, trs, anim) {
 
@@ -183,5 +188,15 @@ export default <div onclick=click class={1; half > 2 ? "small" : "large"  } >
     @media screen and ( max-width: 600px) {
         root.large {width: 20vw; height: 20vw; font-size: 2.4em; border-radius:10vw }
         root.small {width: 14vw; height: 14vw; font-size: 2em; }
+    }
+
+    @media screen and ( max-width: 400px)  {
+        root.large {width: 20vw; height: 20vw; font-size: 2.4em; border-radius:10vw }
+        root.small {width: 14vw; height: 14vw; font-size: 2em; }
+    }
+
+    @media screen and ( max-height: 700px)  {
+        root.large {width: 14vw; height: 14vw; font-size: 2.4em; border-radius:10vw }
+        root.small {width: 12vw; height: 12vw; font-size: 1.5em; }
     }
 </style>;

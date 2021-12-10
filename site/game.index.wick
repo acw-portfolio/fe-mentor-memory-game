@@ -81,6 +81,10 @@ export default <app id="app">
         display:flex;
         flex-direction:column;
         background-color:#F2F2F2;
-        min-height: 100vh;
+        height: 100vh;
+        min-height:600px;
+
+
+        overflow:hidden;
     }
 </style>

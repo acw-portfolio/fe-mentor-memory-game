@@ -22,8 +22,6 @@ export default <main>
         position:relative;
         width:100vw;
         height:70vh;
-
-        overflow:hidden;
     }
 
     .board {
