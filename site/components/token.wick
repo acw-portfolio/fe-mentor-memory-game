@@ -100,6 +100,7 @@ function $M(MATCHED) {
 }
 
 export default <div onclick=click >
+
     <span class={theme == "icons"; "disabled" } class=val>{val}</span>
     <span class={theme == "numbers"; "disabled"} class="val fa" class={true;fa_targets[val]}></span>
 </div>;
