@@ -2,7 +2,6 @@
   "name": "memory-game",
   "type": "module",
   "version": "1.0.0",
-  "main": "www/index.html",
   "author": "Anthony Weathersby <acweathersby.codes@gmail.com>",
   "license": "MIT",
   "private": true,
