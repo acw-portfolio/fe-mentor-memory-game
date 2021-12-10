@@ -1,4 +1,4 @@
-import {players, GAME_OVER, GAME_STARTED} from "@model";
+import {players, GAME_OVER, GAME_STARTED, PAUSED} from "@model";
 
 import glow from "@candlelib/glow";
 
@@ -25,7 +25,16 @@ function $players(players){
                 root = Date.now();
                 return;
             };
-            player.time = Date.now() - root;
+
+            if(PAUSED){
+                time ="paused"
+                root = Date.now()
+                return;
+            }
+
+            const tic = Date.now();
+            player.time += tic - root;
+            root = tic;
             moves = players[0].moves;
             const date = Date.now()
 

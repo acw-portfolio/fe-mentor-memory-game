@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator" content="@candlelib/wick-0.16.1"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FE | Memory Game - Menu</title>
+    
+    <style id="wick-boiler-plate">
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+        position:absolute; 
+        top:0;
+        left:0; 
+        width:100%;
+        padding:0;
+        margin:0; border:none;
+    }
+    
+    li { list-style:none }
+    
+    a { text-decoration:none }
+    
+    </style>
+
+    <style id="wick-app-style">
+    
+                @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap") ;
+                
+                .WiHV9RccJUhccw3K{
+                    font-family:"Atkinson Hyperlegible";
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    width:100vw;
+                    height:100vh;
+                    background-color:rgba(0,0,0,0.53125);
+                    font-size:12px
+                }
+                
+                body{
+                    background-color:#152938
+                }
+                
+                .radiate-init .WiHV9RccJUhccw3K{
+                    opacity:0
+                }
+                
+                .WiHV9RccJUhccw3K .full-row a{
+                    width:100%
+                }
+                
+                .WiHV9RccJUhccw3K .full-row button{
+                    width:100%
+                }
+                
+                .WiHV9RccJUhccw3K h3{
+                    font-size:1.6em
+                }
+                
+                .WiHV9RccJUhccw3K .results{
+                    margin-bottom:0
+                }
+                
+                .WiHV9RccJUhccw3K .results > *{
+                    height:48px
+                }
+                
+                .WiHV9RccJUhccw3K{
+                    padding:20px
+                }
+                
+                .WiHV9RccJUhccw3K .full-row{
+                    flex-direction:column
+                }
+                
+                .WiHV9RccJUhccw3K .full-row a{
+                    width:100%;
+                    padding:10px 0
+                }
+                
+                .WiHV9RccJUhccw3K .full-row button{
+                    width:100%;
+                    height:48px;
+                    font-size:2em
+                }
+                .Wk65gwwkKbnwDkbE{
+                    position:relative;
+                    box-sizing:border-box;
+                    font-size:1.6em;
+                    border-radius:2em;
+                    padding:9px 20px;
+                    border:none;
+                    color:#304859;
+                    font-weight:bolder;
+                    background-color:#dfe7ec;
+                    height:52px;
+                    margin:0;
+                    transition:background-color 200ms
+                }
+                
+                .Wk65gwwkKbnwDkbE.big{
+                    height:70px;
+                    font-size:2.67em
+                }
+                
+                .Wk65gwwkKbnwDkbE:hover,
+                .Wk65gwwkKbnwDkbE.active{
+                    cursor:pointer;
+                    background-color:#bcced9
+                }
+                
+                .Wk65gwwkKbnwDkbE.emphasis,
+                .Wk65gwwkKbnwDkbE.emphasis.active{
+                    color:#ffffff;
+                    background-color:#fda214
+                }
+                
+                .Wk65gwwkKbnwDkbE.emphasis:hover,
+                .Wk65gwwkKbnwDkbE.emphasis.active{
+                    cursor:pointer;
+                    background-color:#ffb84a
+                }
+                
+                .Wk65gwwkKbnwDkbE.white{
+                    color:#ffffff;
+                    background-color:#bcced9
+                }
+                
+                .Wk65gwwkKbnwDkbE.white:hover{
+                    background-color:#7191a5
+                }
+                
+                .Wk65gwwkKbnwDkbE.white.active{
+                    background-color:#304859
+                }
+                .Wwkyub6ikcPM7wvG{
+                    width:650px;
+                    transition:padding 200ms , width 200ms;
+                    background-color:#f2f2f2;
+                    border-radius:20px;
+                    padding:60px
+                }
+                
+                .Wwkyub6ikcPM7wvG h1{
+                    font-size:4em;
+                    text-align:center;
+                    line-height:1em;
+                    margin:20px;
+                    margin-top:0
+                }
+                
+                .Wwkyub6ikcPM7wvG h3{
+                    color:#7191a5;
+                    font-size:1.6em;
+                    margin:10px 0 20px
+                }
+                
+                .Wwkyub6ikcPM7wvG .ful{
+                    width:100%
+                }
+                
+                .Wwkyub6ikcPM7wvG .hlf{
+                    width:47%
+                }
+                
+                .Wwkyub6ikcPM7wvG .thr{
+                    width:31%
+                }
+                
+                .Wwkyub6ikcPM7wvG .qtr{
+                    width:22%
+                }
+                
+                .Wwkyub6ikcPM7wvG div:first-child h3{
+                    margin-top:0
+                }
+                
+                @media screen and (max-width:900px){
+                    .Wwkyub6ikcPM7wvG{
+                        font-size:10px
+                    }
+                    .Wwkyub6ikcPM7wvG h3{
+                        font-size:2em
+                    }
+                    .Wwkyub6ikcPM7wvG{
+                        width:500px
+                    }
+                }
+                
+                @media screen and (max-width:700px){
+                    .Wwkyub6ikcPM7wvG{
+                        padding:40px 20px
+                    }
+                }
+                
+                @media screen and (max-width:500px){
+                    .Wwkyub6ikcPM7wvG{
+                        width:350px
+                    }
+                }
+                .Ww1f62AiIaU4Cilb{
+                    width:100%;
+                    display:flex;
+                    justify-content:space-between
+                }
+                .WiFKgiBwDecU8i4H{
+                    color:#008000;
+                    background-color:#dfe7ec;
+                    margin:15px 0;
+                    height:72px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    padding:4px 30px;
+                    border-radius:10px
+                }
+                
+                .WiFKgiBwDecU8i4H span{
+                    position:relative;
+                    font-weight:bolder;
+                    color:#7191a5
+                }
+                
+                .WiFKgiBwDecU8i4H span:first-child{
+                    left:0px;
+                    font-size:1.5em
+                }
+                
+                .WiFKgiBwDecU8i4H span:last-child{
+                    font-size:2.67em;
+                    right:0px;
+                    color:#304859
+                }
+                
+                .WiFKgiBwDecU8i4H.emphasized{
+                    background-color:#152938
+                }
+                
+                .WiFKgiBwDecU8i4H.emphasized span{
+                    color:#ffffff
+                }
+    </style>
+
+    <style id="radiate">
+        .radiate-page {
+            position:absolute;
+            top:0;
+            left:0;
+        }
+
+        .radiate-hide {
+            opacity:0;
+        }
+
+        radiate-modals {
+            position:fixed;
+            top:0;
+            left:0;
+        }
+
+        radiate-modals iframe{
+            border: none;
+            width:100vh;
+            height:100vh;
+        }
+    </style>
+  </head>
+  <body>
+    <script> document.body.classList.toggle("radiate-init"); </script>
+
+    <div id="app" class="modal wk-c WiHV9RccJUhccw3K modal">
+      <nav class="wk-c Wwkyub6ikcPM7wvG menu wk-claim-0">
+        <div class="wk-c Ww1f62AiIaU4Cilb full-row wk-claim-0">
+          <a href="./#1-1-4" class="wk-claim-0">
+            <button class="wk-c Wk65gwwkKbnwDkbE emphasis wk-claim-0"> Restart 
+            </button>
+          </a>
+          <a href="../" class="wk-claim-0">
+            <button class="wk-c Wk65gwwkKbnwDkbE wk-claim-0"> New Game 
+            </button>
+          </a>
+          <a class="wk-claim-0">
+            <button class="wk-c Wk65gwwkKbnwDkbE wk-claim-0"> Resume Game 
+            </button>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <script type=module id="wick-init-script">
+      
+				import {radiate} from "../src/pack.js";
+				radiate.default();
+    </script>
+    <script type=module id="wick-component-script">
+      
+    const w = wick;
+
+    w.appendPresets({"repo":[["MccdVAicX","../src/pack.js"],["MitLbOicp","../src/pack.js"],["McxRfrckM","../src/pack.js"]]});
+
+    
+      w.rt.rC(class WiHV9RccJUhccw3K extends w.rt.C{
+      
+          init( c ){
+      
+              this.al(7, "click", _=>this.context.api.router.closeModal());
+      
+              this.sa(1, "class", "menu");
+      
+              this.sa(2, "class", "full-row");
+      
+              this.sa(4, "class", "emphasis");
+      
+              this.ua(2, []);
+      
+              this.ua(3, "Unknown Results");
+      
+              this.ua(4, "");
+      
+              this.ua(0, "1-1-4");
+          }
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0,c.u1,c.u2,c.u3,c.u4,c.u5];
+      
+              c.nlu = { 
+      
+                  restart_hash:541065216,
+      
+                  router:574619649,
+      
+                  results:541065218,
+      
+                  result_name:541065219,
+      
+                  result_subtext:541065220,
+      
+                  game:574619653
+               };
+          }
+      
+          u0( f, c ){this.sa(3, "href", `./#${this[0]}`);}
+      
+          oTI( a, b, c, trs ){
+      
+              this.ua(
+      
+                  0,
+      
+                  [this.context.api.store.game.players.length,1,this.context.api.store.game.grid_width].join("-")
+              );
+      
+              this.context.api.store.game.PAUSED = true;
+      
+              trs(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      opacity:[{ tic:0, val:0 },{ tic:200, val:0 },{ tic:600, val:1 }]
+                   }
+              );
+          }
+      
+          oTO( a, b, c, trs ){
+      
+              this.context.api.store.game.PAUSED = false;
+      
+              trs(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      opacity:[{ tic:0, val:1 },{ tic:300, val:0 }]
+                   },
+      
+                  250
+              );
+          }
+      });
+      w.rt.rC(class Wk65gwwkKbnwDkbE extends w.rt.C{
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0];
+      
+              c.nlu = { active:549453824 };
+          }
+      
+          u0( f, c ){this.set_class(0, this[0], "active");}
+      });
+      w.rt.rC(class Wwkyub6ikcPM7wvG extends w.rt.C{
+      
+          });
+      w.rt.rC(class Ww1f62AiIaU4Cilb extends w.rt.C{
+      
+          });
+      w.rt.rC(class WiFKgiBwDecU8i4H extends w.rt.C{
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0,c.u1,c.u2];
+      
+              c.nlu = { 
+      
+                  emphasized:809500672,
+      
+                  content:809500673,
+      
+                  value:809500674
+               };
+          }
+      
+          u0( f, c ){
+      
+              this.set_class(0, this.model.emphasized, "emphasized");
+          }
+      
+          u1( f, c ){this.ue(2, this.model.content);}
+      
+          u2( f, c ){this.ue(4, this.model.value);}
+      
+          oTI( a, b, c, t ){
+      
+              const del= a*200+600;
+      
+              t(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      transform:[{ val:"translateX(800px)", tic:0 },{ val:"translateX(0)", tic:200+del, eas:t.easing.out }],
+      
+                      opacity:[{ val:0, tic:0 },{ val:0, tic:del },{ val:1, tic:200+del }]
+                   }
+              );
+          }
+      });
+    
+    </script>
+  </body>
+</html>

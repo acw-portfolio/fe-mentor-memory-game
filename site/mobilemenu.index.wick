@@ -1,0 +1,77 @@
+import "@radiate";
+import {game} from "@store";
+import {router} from "@api"
+import normal_button from "./components/buttons/normal.wick";
+import menu from "./components/menu.wick";
+import row from "./components/buttons/buttonrow.wick";
+import result from "./components/result.wick";
+import {getTimeStamp} from "./scripts/time.ts";
+
+var results = [], result_name = "Unknown Results", result_subtext ="", restart_hash="1-1-4";
+function onin(a,b,c,trs){
+    restart_hash = [game.players.length, 1, game.grid_width].join("-");
+    game.PAUSED = true;
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:0}, {tic:200, val:0}, {tic:600, val:1}]
+    })
+}
+
+function onout(a,b,c,trs){
+    game.PAUSED = false;
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:1}, {tic:300, val:0}]
+    }, 250)
+}
+
+export default <div id="app" class="modal">
+    <head>
+        <title>FE | Memory Game - Menu</title>
+    </head>
+    <menu class=menu>
+        <row class="full-row">
+            <a href={`./#${restart_hash}`} ><normal_button class="emphasis"> Restart </normal_button></a>
+            <a href="../"><normal_button > New Game </normal_button></a>
+            <a onclick={router.closeModal()}><normal_button > Resume Game </normal_button></a>
+        </row>
+    </menu>
+</div>;
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    root {
+        font-family: "Atkinson Hyperlegible";
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        width:100vw;
+        height:100vh;
+        background-color:#00000088;
+        font-size:12px;
+    }
+
+    body {
+        background-color:#152938;
+    }
+
+    .radiate-init root {
+        opacity:0
+    }
+
+    .full-row a { width :100%}
+    .full-row button { width :100%}
+
+        h3 {  font-size:1.6em; }
+        .results { margin-bottom:0 }
+        .results > * { height:48px }
+        root { padding:20px; }
+        .full-row {  flex-direction:column }
+        .full-row a { width:100%; padding:10px 0; }
+        .full-row button { width :100%; height: 48px; font-size:2em}
+    
+    
+
+</style>;

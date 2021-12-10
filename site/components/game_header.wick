@@ -21,7 +21,7 @@ export default <header>
     <div class=buttons>
         <a href="#restart"><btn class="restart emphasis">Restart</btn></a>
         <a href="../"><btn class=newgame>New Game</btn></a>
-        <a href="../"><btn class="menu emphasis">Menu</btn></a>
+        <a href="../mobilemenu"><btn class="menu emphasis">Menu</btn></a>
     </div>
 
 </header>;
