@@ -21,7 +21,8 @@ export default <main>
         display:block;
         position:relative;
         width:100vw;
-        height:70vh;
+        height:85vh;
+        padding-bottom:150px;
     }
 
     .board {
@@ -35,6 +36,10 @@ export default <main>
     }
 
     @media screen and ( max-width: 800px) {
-         root {  height:80vh }
+         root {  height:85vh }
+    }
+
+    @media screen and ( max-height: 700px) {
+         root {  padding-bottom:100px; }
     }
 </style>;

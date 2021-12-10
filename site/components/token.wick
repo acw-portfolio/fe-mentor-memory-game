@@ -22,7 +22,7 @@ const fa_targets = [
 function setSize(){
 
     if(height < 701) {
-        let sz = half > 2?  width *0.13 : width *0.16;
+        let sz = half > 2?  height *0.12 : height *0.10;
         root.style.top = (r * sz - half * sz) + "px";
         root.style.left = (c * sz - half * sz) + "px";
     } else if(width < 600){
@@ -196,7 +196,7 @@ export default <div onclick=click class={1; half > 2 ? "small" : "large"  } >
     }
 
     @media screen and ( max-height: 700px)  {
-        root.large {width: 14vw; height: 14vw; font-size: 2.4em; border-radius:10vw }
-        root.small {width: 12vw; height: 12vw; font-size: 1.5em; }
+        root.large {width: 14vh; height: 14vh; font-size: 2.4em; border-radius:10vw }
+        root.small {width: 10vh; height: 10vh; font-size: 1.5em; }
     }
 </style>;
