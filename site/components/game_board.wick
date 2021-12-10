@@ -21,7 +21,7 @@ export default <main>
         display:block;
         position:relative;
         width:100vw;
-        height:75vh;
+        height:70vh;
 
         overflow:hidden;
     }
