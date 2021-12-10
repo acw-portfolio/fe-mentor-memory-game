@@ -361,7 +361,7 @@
                         padding-bottom:5px
                     }
                 }
-                .Wwcf2XDkROiTiw8E{
+                .WcFZLC6cJZdd8ce3{
                     display:flex;
                     justify-content:center;
                     align-items:center;
@@ -377,34 +377,34 @@
                     border-radius:50%
                 }
                 
-                .Wwcf2XDkROiTiw8E.large{
+                .WcFZLC6cJZdd8ce3.large{
                     font-size:3em;
                     width:118px;
                     height:118px
                 }
                 
-                .Wwcf2XDkROiTiw8E.small{
+                .WcFZLC6cJZdd8ce3.small{
                     font-size:2.5em;
                     width:82px;
                     height:82px
                 }
                 
-                .Wwcf2XDkROiTiw8E:hover{
+                .WcFZLC6cJZdd8ce3:hover{
                     cursor:pointer;
                     background-color:#6395b8
                 }
                 
-                .Wwcf2XDkROiTiw8E.REVEALED{
+                .WcFZLC6cJZdd8ce3.REVEALED{
                     background:#fda214;
                     box-shadow:0 0 10px rgba(0,0,0,0.3)
                 }
                 
-                .Wwcf2XDkROiTiw8E.MATCHED{
+                .WcFZLC6cJZdd8ce3.MATCHED{
                     background:#bcced9;
                     box-shadow:none
                 }
                 
-                .Wwcf2XDkROiTiw8E span.val{
+                .WcFZLC6cJZdd8ce3 span.val{
                     vertical-align:middle;
                     line-height:2em;
                     display:none;
@@ -414,30 +414,30 @@
                     left:0
                 }
                 
-                .Wwcf2XDkROiTiw8E.REVEALED span.val{
+                .WcFZLC6cJZdd8ce3.REVEALED span.val{
                     display:inline-block
                 }
                 
-                .Wwcf2XDkROiTiw8E span.logo{
+                .WcFZLC6cJZdd8ce3 span.logo{
                     font-size:0.5em;
                     display:inline-block
                 }
                 
-                .Wwcf2XDkROiTiw8E.REVEALED span.logo{
+                .WcFZLC6cJZdd8ce3.REVEALED span.logo{
                     display:none
                 }
                 
-                .Wwcf2XDkROiTiw8E .disabled{
+                .WcFZLC6cJZdd8ce3 .disabled{
                     display:none !important
                 }
                 
                 @media screen and (max-width:600px){
-                    .Wwcf2XDkROiTiw8E.large{
+                    .WcFZLC6cJZdd8ce3.large{
                         width:20vw;
                         height:20vw;
                         font-size:2.4em
                     }
-                    .Wwcf2XDkROiTiw8E.small{
+                    .WcFZLC6cJZdd8ce3.small{
                         width:14vw;
                         height:14vw;
                         font-size:2em
@@ -445,12 +445,12 @@
                 }
                 
                 @media screen and (max-width:400px){
-                    .Wwcf2XDkROiTiw8E.large{
+                    .WcFZLC6cJZdd8ce3.large{
                         width:20vw;
                         height:20vw;
                         font-size:2.4em
                     }
-                    .Wwcf2XDkROiTiw8E.small{
+                    .WcFZLC6cJZdd8ce3.small{
                         width:14vw;
                         height:14vw;
                         font-size:2em
@@ -458,12 +458,12 @@
                 }
                 
                 @media screen and (max-height:900px){
-                    .Wwcf2XDkROiTiw8E.large{
+                    .WcFZLC6cJZdd8ce3.large{
                         width:14vh;
                         height:14vh;
                         font-size:2.4em
                     }
-                    .Wwcf2XDkROiTiw8E.small{
+                    .WcFZLC6cJZdd8ce3.small{
                         width:10vh;
                         height:10vh;
                         font-size:1.5em
@@ -520,7 +520,7 @@
           </div>
         </header>
         <main class="wk-c WiCxUE7cfC5vwiQC wk-claim-0">
-          <div class="wk-ctr board wk-claim-1" data-wkctr="Wwcf2XDkROiTiw8E" data-wkctra="">
+          <div class="wk-ctr board wk-claim-1" data-wkctr="WcFZLC6cJZdd8ce3" data-wkctra="">
           </div>
         </main>
         <footer class="wk-c Wcxw0XAiDJ5z9kL6 wk-claim-0">
@@ -544,8 +544,8 @@
       </div>
     </app>
 
-    <template class="wk-c" id="Wwcf2XDkROiTiw8E">
-      <div class="wk-c Wwcf2XDkROiTiw8E">
+    <template class="wk-c" id="WcFZLC6cJZdd8ce3">
+      <div class="wk-c WcFZLC6cJZdd8ce3">
         <span class="val wk-claim-0"><w-b class="wk-claim-0"></w-b>
         </span>
         <span class="true val fa wk-claim-0">
@@ -1031,7 +1031,7 @@
       
           u0( f, c ){this.set_class(0, this[0], "active");}
       });
-      w.rt.rC(class Wwcf2XDkROiTiw8E extends w.rt.C{
+      w.rt.rC(class WcFZLC6cJZdd8ce3 extends w.rt.C{
       
           init( c ){
       
@@ -1137,9 +1137,11 @@
       
               if ( this[0]<901 ) {
       
-                  const val= Math.min(this[0], this[1]);
+                  let val= Math.min(this[0], this[1]);
       
-                  let sz= this[4]>2?val*0.10:val*0.15;
+                  if ( this[1]<800 ) val = this[0];
+      
+                  let sz= this[4]>2?val*0.10:val*0.13;
       
                   this[8].style.top = (this[11]*sz-this[4]*sz)+"px";
       
@@ -1152,9 +1154,9 @@
                       this[8].style.height = val*0.09+"px";
                   }else {
       
-                      this[8].style.width = val*0.135+"px";
+                      this[8].style.width = val*0.105+"px";
       
-                      this[8].style.height = val*0.135+"px";
+                      this[8].style.height = val*0.105+"px";
                   }
               }else if ( this[1]<600 ) {
       

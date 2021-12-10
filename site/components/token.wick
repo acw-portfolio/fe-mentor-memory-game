@@ -22,8 +22,12 @@ const fa_targets = [
 function setSize(){
 
     if(height < 901) {
-        const val = Math.min(height, width);
-        let sz = half > 2?  val *0.10 : val *0.15;
+        let val = Math.min(height, width);
+
+        if(width < 800)
+            val = height;
+
+        let sz = half > 2?  val *0.10 : val *0.13;
         root.style.top = (r * sz - half * sz) + "px";
         root.style.left = (c * sz - half * sz) + "px";
 
@@ -32,8 +36,8 @@ function setSize(){
             root.style.height = val*0.09 + "px"
         }else{
 
-        root.style.width = val*0.135 + "px"
-        root.style.height = val*0.135 + "px"
+        root.style.width = val*0.105 + "px"
+        root.style.height = val*0.105 + "px"
         }
     } else if(width < 600){
         let sz = half > 2?  width *0.16 : width *0.24;
