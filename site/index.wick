@@ -56,7 +56,7 @@ export default <div id="app">
                 </row>
             </div>
 
-            <a href={ `/game/#${plyrs}-${theme}-${grid}` }>
+            <a href={ `./game/#${plyrs}-${theme}-${grid}` }>
                 <normal_button class="bold ful big emphasis"> Start Game </normal_button>
             </a>
 
