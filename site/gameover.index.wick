@@ -85,8 +85,8 @@ export default <div id="app" class="modal">
             <result/>
         </container>
         <row class="full-row">
-            <a href={`/game/#${restart_hash}`} ><normal_button class="emphasis"> Restart </normal_button></a>
-            <a href="/"><normal_button > Setup New Game </normal_button></a>
+            <a href={`./#${restart_hash}`} ><normal_button class="emphasis"> Restart </normal_button></a>
+            <a href="../"><normal_button > Setup New Game </normal_button></a>
         </row>
     </menu>
 </div>;
