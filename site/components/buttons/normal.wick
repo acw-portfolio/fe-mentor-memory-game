@@ -1,0 +1,56 @@
+import {active} from "@props";
+
+export default <button class={active;"active"}></button>;
+
+<style>
+    
+    root {
+        position:relative;
+        box-sizing:border-box;
+        font-size:1.6em;
+        border-radius: 2.0em;
+        padding: 9px 20px;
+        border:none;
+        color:#304859;
+        font-weight:bolder;
+        background-color:#DFE7EC;
+        height:52px;
+        margin:0;
+        transition:background-color 200ms;
+    }
+
+    root.big {
+        height:70px;
+        font-size:2.67em;
+    }
+
+    root:hover, root.active { 
+        cursor:pointer; 
+        background-color:#BCCED9; 
+    }
+
+    root.emphasis, 
+    root.emphasis.active{
+        color:white;
+        background-color:#FDA214;
+    }
+
+    root.emphasis:hover, root.emphasis.active { 
+        cursor:pointer; 
+        background-color:#FFB84A; 
+    }
+
+    root.white {
+        color:white;
+        background-color:#BCCED9;
+    }
+
+    root.white:hover {
+        background-color:#7191A5;
+    }
+
+    root.white.active {
+        background-color:#304859;
+    }
+
+</style>

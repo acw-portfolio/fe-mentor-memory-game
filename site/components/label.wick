@@ -1,0 +1,52 @@
+import {text, subtext, ACTIVE} from "@props";
+
+export default <div class={ACTIVE; "ACTIVE"}>
+    <span class=text>{text}</span>
+    <span class=subtext>{subtext}</span>
+</div>;
+
+<style>
+
+    root {
+        display:flex;
+        align-items:center;
+        height: 70px;
+        background-color:#DFE7EC;
+        border-radius:10px;
+        box-sizing:border-box;
+        justify-content: space-between;
+        padding:20px;
+        width: 250px;
+        margin: 0 20px;
+        transition:background 100ms, flex 200ms;
+    }
+
+    .text {
+        color:#7191A5;
+        font-weight:700;
+        transition:color 100ms;
+    }
+
+    .subtext {
+        color:#304859;
+        font-size:32px;
+        font-weight:700;
+        transition:color 100ms;
+    }
+
+    root.ACTIVE {
+        background-color: #FDA214;
+        color:white;
+    }
+
+    root.ACTIVE .text,
+    root.ACTIVE .subtext {
+        color:white;
+    }
+
+    @media screen and ( max-width: 680px) {
+         root { 
+        width: 50%; justify-content: center;flex-direction: column; padding:40px 10px; font-size:1.1em; margin:0 10px  }
+    }
+
+</style>

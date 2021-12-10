@@ -1,0 +1,59 @@
+import {content, value, emphasized } from "@model";
+
+function ontrsin(a,b,c,t){
+    const del = a * 200 + 600;
+    t({
+        obj:"@root",
+        transform: [
+            {val:"translateX(800px)", tic:0}, 
+            {val:"translateX(0)", tic:200+del, eas:t.easing.out}            
+        ],
+        opacity:[{val:0, tic:0}, {val:0, tic:del}, {val:1, tic:200+del}]
+    });
+}
+
+export default <div class={emphasized;"emphasized"}>
+    <span>{content}</span><span>{value}</span>
+</div>;
+
+<style>
+
+    root {
+        color:green;
+        background-color:#DFE7EC;
+        margin: 15px 0;
+        height:72px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding: 4px 30px;
+        border-radius:10px;
+    }
+
+    span {
+        position:inline-block;
+        position:relative;
+        font-weight:bolder;
+        color:#7191A5;
+    }
+
+    span:first-child {
+        left:0px;
+        font-size:1.5em;
+    }
+
+    span:last-child {
+        font-size:2.67em;
+        right:0px;
+        color:#304859;
+    }
+
+    root.emphasized {
+        background-color:#152938;
+    }
+
+    root.emphasized span {
+        color:white;
+    }
+
+</style>

@@ -1,0 +1,109 @@
+import "@radiate"
+import normal_button from "./components/buttons/normal.wick";
+import menu from "./components/menu.wick";
+import row from "./components/buttons/buttonrow.wick";
+
+let plyrs = 1, theme = 1, grid = 4;
+
+function onin(a,b,c,trs){
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:0}, {tic:50, val:0}, {tic:300, val:1}]
+    })
+}
+
+function onout(a,b,c,trs){
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:1}, {tic:300, val:0}]
+    }, 250)
+}
+
+export default <div id="app">
+    <head>
+        <title>FE | Memory Game </title>
+    </head>
+    <nav>
+        <h1>memory</h1>
+        <menu>
+            <div> 
+                <h3>Select Theme</h3>
+                <row>
+                <normal_button active={ theme == 1 } onclick={ theme = 1 } class="normal hlf white">Numbers</normal_button>
+                <normal_button active={ theme == 2 } onclick={ theme = 2 } class="normal hlf white">Icons</normal_button>
+                </row>
+            </div>
+
+            <div> 
+                <h3>Number of Players</h3>
+                <row>
+                <normal_button class="qtr normal white" active={ plyrs == 1 } onclick={ plyrs = 1 }>1</normal_button>
+                <normal_button class="qtr normal white" active={ plyrs == 2 } onclick={ plyrs = 2 }>2</normal_button>
+                <normal_button class="qtr normal white" active={ plyrs == 3 } onclick={ plyrs = 3 }>3</normal_button>
+                <normal_button class="qtr normal white" active={ plyrs == 4 } onclick={ plyrs = 4 }>4</normal_button>
+                </row>
+            </div>
+            
+            <div> 
+                <h3>Grid Size</h3>
+                <row>
+                <normal_button class="normal hlf white"
+                    active={ grid == 4 } onclick={ grid = 4 } 
+                    >4x4</normal_button>
+                <normal_button class="normal hlf white"
+                    active={ grid == 6 } onclick={ grid = 6 } 
+                    >6x6</normal_button>
+                </row>
+            </div>
+
+            <a href={ `/game/#${plyrs}-${theme}-${grid}` }>
+                <normal_button class="bold ful big emphasis"> Start Game </normal_button>
+            </a>
+
+        </menu>
+    </nav>
+</div>;
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    body {
+        min-height:100vh;
+    }
+
+    h1{
+        font-size:4em;
+        color:white;
+        text-align:center;
+        line-height:1em;
+        margin:0px;
+        margin-bottom:70px;
+    }
+
+
+    root {
+        font-family: "Atkinson Hyperlegible";
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100%;
+        background-color:#152938;
+        font-size:12px;
+    }
+
+    .big {
+        margin-top:40px;
+    }
+
+    body {
+        background-color:#152938;
+    }
+
+    .radiate-init root {
+        opacity:0
+    }
+</style>;

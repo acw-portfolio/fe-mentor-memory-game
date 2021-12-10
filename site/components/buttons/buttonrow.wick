@@ -1,0 +1,11 @@
+export default <div></div>;
+
+<style>
+
+    root {
+        width:100%;
+        display:flex;
+        justify-content: space-between;
+    }
+
+</style>

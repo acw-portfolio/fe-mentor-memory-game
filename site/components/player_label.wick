@@ -1,32 +1,35 @@
-export default <div>
-    <span class=name>Player 1</span>
-    <span class=score>5</span>
-</div>;
+import {name, matches, ACTIVE} from "@model";
+import glow from "@candlelib/glow";
+import {width} from "@session";
 
-<style>
+import labeldd from "./label.wick"
 
-    root {
-        display:flex;
-        align-items:center;
-        width: 250px;
-        height: 70px;
-        background-color:#DFE7EC;
-        border-radius:10px;
-        box-sizing:border-box;
-        justify-content: space-between;
-        padding:20px;
-        margin: 0 20px;
+let STARTED = false;
+
+function $(ACTIVE, STARTED){
+    if(ACTIVE && STARTED){
+        glow({
+            obj:"@root",
+            transform: [
+                {tic:0, val:"scale(1) rotate(10deg)"},
+                {tic:100, val:"scale(1.1) rotate(-5deg)"},
+                {tic:120, val:"scale(1) rotate(0)"}
+            ]
+        }).play();
     }
+}
 
-    .name {
-        color:#7191A5;
-        font-weight:700;
-    }
+function ontrsin(row,col,_, trs){
+    const del = row*100 + 200;
+    trs({
+        obj:"@root",
+        transform: [
+            {tic:0, val:"translateY(300)"},
+            {tic:0 +del, val:"translateY(300)"},
+            {tic:300+del, val:"translateY(0)", eas:glow.easing.out},
+        ]
+    })
+    STARTED = true;
+}
 
-    .score {
-        color:#304859;
-        font-size:32px;
-        font-weight:700;
-    }
-
-</style>
+export default <labeldd text={ width > 600 ?  `Player ${name}` : `P${name}` } subtext={ matches } {ACTIVE}></labeldd>;

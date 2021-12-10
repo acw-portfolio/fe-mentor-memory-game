@@ -1,5 +1,7 @@
 import token from "./token.wick";
 
+import {width, height} from "@session";
+
 import { tokens, grid_width, grid_height } from "@model";
 
 export default <main>
@@ -15,19 +17,19 @@ export default <main>
 
 <style>
     root {
-        perspective:500px;
+        perspective:600px;
         display:block;
         position:relative;
         width:100vw;
         height:70vh;
+
         overflow:hidden;
     }
 
     .board {
         perspective: 5500px;
-        perspective-origin: center;
         transform-style: preserve-3d;
-        left:50%;
+        left:51%;
         top:50%;
         width: 1px;
         height: 1px;

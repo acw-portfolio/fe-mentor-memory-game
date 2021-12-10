@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator" content="@candlelib/wick-0.16.1"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FE | Memory Game - Main Menu</title>
+    
+    <style id="wick-boiler-plate">
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+        position:absolute; 
+        top:0;
+        left:0; 
+        width:100%;
+        padding:0;
+        margin:0; border:none;
+    }
+    
+    li { list-style:none }
+    
+    a { text-decoration:none }
+    
+    </style>
+
+    <style id="wick-app-style">
+    
+                @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap") ;
+                
+                .WiIZ2pCcXxKowi3N{
+                    font-family:"Atkinson Hyperlegible";
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    width:100vw;
+                    height:100vh;
+                    background-color:rgba(0,0,0,0.53125);
+                    font-size:12px
+                }
+                
+                .WiIZ2pCcXxKowi3N h3{
+                    text-align:center
+                }
+                
+                .WiIZ2pCcXxKowi3N .results{
+                    overflow-x:hidden;
+                    margin-bottom:50px
+                }
+                
+                body{
+                    background-color:#152938
+                }
+                
+                .radiate-init .WiIZ2pCcXxKowi3N{
+                    opacity:0
+                }
+                
+                .WiIZ2pCcXxKowi3N .full-row a{
+                    width:47%
+                }
+                
+                .WiIZ2pCcXxKowi3N .full-row button{
+                    width:100%
+                }
+                
+                @media screen and (max-width:700px){
+                    .WiIZ2pCcXxKowi3N h3{
+                        font-size:1.6em
+                    }
+                    .WiIZ2pCcXxKowi3N .results{
+                        margin-bottom:0
+                    }
+                    .WiIZ2pCcXxKowi3N .results > *{
+                        height:48px
+                    }
+                    .WiIZ2pCcXxKowi3N{
+                        padding:20px
+                    }
+                    .WiIZ2pCcXxKowi3N .full-row{
+                        flex-direction:column
+                    }
+                    .WiIZ2pCcXxKowi3N .full-row a{
+                        width:100%;
+                        padding:10px 0
+                    }
+                    .WiIZ2pCcXxKowi3N .full-row button{
+                        width:100%;
+                        height:48px;
+                        font-size:2em
+                    }
+                }
+                .Wk65gwwkKbnwDkbE{
+                    position:relative;
+                    box-sizing:border-box;
+                    font-size:1.6em;
+                    border-radius:2em;
+                    padding:9px 20px;
+                    border:none;
+                    color:#304859;
+                    font-weight:bolder;
+                    background-color:#dfe7ec;
+                    height:52px;
+                    margin:0;
+                    transition:background-color 200ms
+                }
+                
+                .Wk65gwwkKbnwDkbE.big{
+                    height:70px;
+                    font-size:2.67em
+                }
+                
+                .Wk65gwwkKbnwDkbE:hover,
+                .Wk65gwwkKbnwDkbE.active{
+                    cursor:pointer;
+                    background-color:#bcced9
+                }
+                
+                .Wk65gwwkKbnwDkbE.emphasis,
+                .Wk65gwwkKbnwDkbE.emphasis.active{
+                    color:#ffffff;
+                    background-color:#fda214
+                }
+                
+                .Wk65gwwkKbnwDkbE.emphasis:hover,
+                .Wk65gwwkKbnwDkbE.emphasis.active{
+                    cursor:pointer;
+                    background-color:#ffb84a
+                }
+                
+                .Wk65gwwkKbnwDkbE.white{
+                    color:#ffffff;
+                    background-color:#bcced9
+                }
+                
+                .Wk65gwwkKbnwDkbE.white:hover{
+                    background-color:#7191a5
+                }
+                
+                .Wk65gwwkKbnwDkbE.white.active{
+                    background-color:#304859
+                }
+                .Wwkyub6ikcPM7wvG{
+                    width:650px;
+                    transition:padding 200ms , width 200ms;
+                    background-color:#f2f2f2;
+                    border-radius:20px;
+                    padding:60px
+                }
+                
+                .Wwkyub6ikcPM7wvG h1{
+                    font-size:4em;
+                    text-align:center;
+                    line-height:1em;
+                    margin:20px;
+                    margin-top:0
+                }
+                
+                .Wwkyub6ikcPM7wvG h3{
+                    color:#7191a5;
+                    font-size:1.6em;
+                    margin:10px 0 20px
+                }
+                
+                .Wwkyub6ikcPM7wvG .ful{
+                    width:100%
+                }
+                
+                .Wwkyub6ikcPM7wvG .hlf{
+                    width:47%
+                }
+                
+                .Wwkyub6ikcPM7wvG .thr{
+                    width:31%
+                }
+                
+                .Wwkyub6ikcPM7wvG .qtr{
+                    width:22%
+                }
+                
+                .Wwkyub6ikcPM7wvG div:first-child h3{
+                    margin-top:0
+                }
+                
+                @media screen and (max-width:900px){
+                    .Wwkyub6ikcPM7wvG{
+                        font-size:10px
+                    }
+                    .Wwkyub6ikcPM7wvG h3{
+                        font-size:2em
+                    }
+                    .Wwkyub6ikcPM7wvG{
+                        width:500px
+                    }
+                }
+                
+                @media screen and (max-width:700px){
+                    .Wwkyub6ikcPM7wvG{
+                        padding:40px 20px
+                    }
+                }
+                
+                @media screen and (max-width:500px){
+                    .Wwkyub6ikcPM7wvG{
+                        width:350px
+                    }
+                }
+                .Ww1f62AiIaU4Cilb{
+                    width:100%;
+                    display:flex;
+                    justify-content:space-between
+                }
+                .WiFKgiBwDecU8i4H{
+                    color:#008000;
+                    background-color:#dfe7ec;
+                    margin:15px 0;
+                    height:72px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    padding:4px 30px;
+                    border-radius:10px
+                }
+                
+                .WiFKgiBwDecU8i4H span{
+                    position:relative;
+                    font-weight:bolder;
+                    color:#7191a5
+                }
+                
+                .WiFKgiBwDecU8i4H span:first-child{
+                    left:0px;
+                    font-size:1.5em
+                }
+                
+                .WiFKgiBwDecU8i4H span:last-child{
+                    font-size:2.67em;
+                    right:0px;
+                    color:#304859
+                }
+                
+                .WiFKgiBwDecU8i4H.emphasized{
+                    background-color:#152938
+                }
+                
+                .WiFKgiBwDecU8i4H.emphasized span{
+                    color:#ffffff
+                }
+    </style>
+
+    <style id="radiate">
+        .radiate-page {
+            position:absolute;
+            top:0;
+            left:0;
+        }
+
+        .radiate-hide {
+            opacity:0;
+        }
+
+        radiate-modals {
+            position:fixed;
+            top:0;
+            left:0;
+        }
+
+        radiate-modals iframe{
+            border: none;
+            width:100vh;
+            height:100vh;
+        }
+    </style>
+  </head>
+  <body>
+    <script> document.body.classList.toggle("radiate-init"); </script>
+
+    <div id="app" class="modal wk-c WiIZ2pCcXxKowi3N modal">
+      <nav class="wk-c Wwkyub6ikcPM7wvG menu wk-claim-0">
+        <h1 class="wk-claim-0"><w-b class="wk-claim-0">Unknown Results</w-b>
+        </h1>
+        <h3 class="wk-claim-0"><w-b class="wk-claim-0"></w-b>
+        </h3>
+        <div class="wk-ctr results wk-claim-0" data-wkctr="WiFKgiBwDecU8i4H" data-wkctra="">
+        </div>
+        <div class="wk-c Ww1f62AiIaU4Cilb full-row wk-claim-0">
+          <a href="/game/#1-1-4" class="wk-claim-0">
+            <button class="wk-c Wk65gwwkKbnwDkbE emphasis wk-claim-0"> Restart 
+            </button>
+          </a>
+          <a href="/" class="wk-claim-0">
+            <button class="wk-c Wk65gwwkKbnwDkbE wk-claim-0"> Setup New Game 
+            </button>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <template class="wk-c" id="WiFKgiBwDecU8i4H">
+      <div class="wk-c WiFKgiBwDecU8i4H">
+        <span class="wk-claim-0"><w-b class="wk-claim-0"></w-b>
+        </span>
+        <span class="wk-claim-0"><w-b class="wk-claim-0"></w-b>
+        </span>
+      </div>
+    </template>
+    <script type=module id="wick-init-script">
+      
+				import {radiate} from "/src/pack.js";
+				radiate.default();
+    </script>
+    <script type=module id="wick-component-script">
+      
+    const w = wick;
+
+    w.appendPresets({"repo":[["MccdVAicX","/src/pack.js"],["MitLbOicp","/src/pack.js"],["McxRfrckM","/src/pack.js"]]});
+
+    
+      w.rt.rC(class WiIZ2pCcXxKowi3N extends w.rt.C{
+      
+          init( c ){
+      
+              this.ua(2, []);
+      
+              this.ua(0, "Unknown Results");
+      
+              this.ua(1, "");
+      
+              this.ua(3, "1-1-4");
+          }
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0,c.u1,c.u2,c.u3,c.u4,c.u5];
+      
+              c.nlu = { 
+      
+                  result_name:541065216,
+      
+                  result_subtext:541065217,
+      
+                  results:541065218,
+      
+                  restart_hash:541065219,
+      
+                  game:574619652,
+      
+                  getTimeStamp:574619653
+               };
+          }
+      
+          u0( f, c ){this.ue(3, this[0]);}
+      
+          u1( f, c ){this.ue(5, this[1]);}
+      
+          u2( f, c ){this.ctr[0].sd(this[2]);}
+      
+          u3( f, c ){this.sa(8, "href", `/game/#${this[3]}`);}
+      
+          oTI( a, b, c, trs ){
+      
+              trs(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      opacity:[{ tic:0, val:0 },{ tic:300, val:0 },{ tic:800, val:1 }]
+                   },
+      
+                  { 
+      
+                      obj:this.elu[1][0],
+      
+                      transform:[{ val:"translateY(50px)", tic:299 },{ val:"translateY(0)", tic:600, eas:trs.easing.out }],
+      
+                      opacity:[{ tic:0, val:0 },{ tic:300, val:0 },{ tic:600, val:1 }]
+                   },
+      
+                  300
+              );
+      
+              if ( this.context.api.store.game ) {
+      
+                  this.ua(
+      
+                      3,
+      
+                      [this.context.api.store.game.players.length,1,this.context.api.store.game.grid_width].join("-")
+                  );
+      
+                  const num_of_players= this.context.api.store.game.players.length;
+      
+                  if ( num_of_players>1 ) {
+      
+                      const sorted_players= this.context.api.store.game.players.sort(( p1, p2 )=>p2.matches-p1.matches);
+      
+                      const top_score= sorted_players[0].matches;
+      
+                      const winners= this.context.api.store.game.players.filter(p=>p.matches==top_score);
+      
+                      this.ua(
+      
+                          2,
+      
+                          sorted_players.map(
+      
+                              ( { name, matches } )=>({ 
+      
+                                  content:`Player ${name}${matches==top_score?" (Winner!)":""}`,
+      
+                                  value:`${matches} Pair${matches==1?" ":"s"}`,
+      
+                                  emphasized:matches==top_score
+                               })
+                          )
+                      );
+      
+                      if ( winners.length>1 ) {this.ua(0, "It's a tie!");}else {this.ua(0, `Player ${winners[0].name} Wins!`);}
+      
+                      this.ua(1, "Game over! Here are the results...");
+                  }else {
+      
+                      this.ua(0, "You did it!");
+      
+                      this.ua(1, "Game over! Here’s how you got on...");
+      
+                      this.ua(
+      
+                          2,
+      
+                          [{ 
+      
+                              content:"Time Elapsed",
+      
+                              value:this.context.api.MitLbOicp.module.getTimeStamp(this.context.api.store.game.players[0].time)
+                           },{ 
+      
+                              content:"Moves Taken",
+      
+                              value:this.context.api.store.game.players[0].moves+" Moves"
+                           }]
+                      );
+                  }
+              }else {this.ua(0, "Unknown Result"); this.ua(2, []);}
+          }
+      
+          oTO( a, b, c, trs ){
+      
+              trs(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      opacity:[{ tic:0, val:1 },{ tic:300, val:0 }]
+                   },
+      
+                  200
+              );
+          }
+      });
+      w.rt.rC(class Wk65gwwkKbnwDkbE extends w.rt.C{
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0];
+      
+              c.nlu = { active:549453824 };
+          }
+      
+          u0( f, c ){this.set_class(0, this[0], "active");}
+      });
+      w.rt.rC(class Wwkyub6ikcPM7wvG extends w.rt.C{
+      
+          });
+      w.rt.rC(class Ww1f62AiIaU4Cilb extends w.rt.C{
+      
+          });
+      w.rt.rC(class WiFKgiBwDecU8i4H extends w.rt.C{
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0,c.u1,c.u2];
+      
+              c.nlu = { 
+      
+                  emphasized:809500672,
+      
+                  content:809500673,
+      
+                  value:809500674
+               };
+          }
+      
+          u0( f, c ){
+      
+              this.set_class(0, this.model.emphasized, "emphasized");
+          }
+      
+          u1( f, c ){this.ue(2, this.model.content);}
+      
+          u2( f, c ){this.ue(4, this.model.value);}
+      
+          oTI( a, b, c, t ){
+      
+              const del= a*200+600;
+      
+              t(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      transform:[{ val:"translateX(800px)", tic:0 },{ val:"translateX(0)", tic:200+del, eas:t.easing.out }],
+      
+                      opacity:[{ val:0, tic:0 },{ val:0, tic:del },{ val:1, tic:200+del }]
+                   }
+              );
+          }
+      });
+    
+    </script>
+  </body>
+</html>

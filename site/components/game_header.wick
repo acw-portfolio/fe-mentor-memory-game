@@ -1,0 +1,81 @@
+import btn from "./buttons/normal";
+
+function onin(a,b,c,trs){
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:0}, {tic:200, val:0}, {tic:600, val:1}]
+    })
+}
+
+function onout(a,b,c,trs){
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:1}, {tic:300, val:0}]
+    }, 250)
+}
+
+export default <header>
+
+    <div class=logo><img width=153 src="/img/logo.svg" alt="memory"/></div>
+
+    <div class=buttons>
+        <a href="#restart"><btn class="restart emphasis">Restart</btn></a>
+        <a href="/"><btn class=newgame>New Game</btn></a>
+        <a href="/"><btn class="menu emphasis">Menu</btn></a>
+    </div>
+
+</header>;
+
+<style>
+    root {
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        position:relative;
+        width:100vw;
+        height:15vh;
+        padding: 60px 165px 0 165px;
+        box-sizing:border-box;
+        transition: height 200ms, padding 200ms;
+    }
+
+    .radiate-init root {
+        opacity : 0
+    }
+
+    .logo {
+        position:relative;
+        top:14px;
+        height:52px;
+    }
+
+    .buttons {
+        position:relative;
+    }
+
+    button {
+        font-size: 1.2em;
+        margin: 10px;
+    }
+
+    button:last-child{
+        margin-right:0;
+    }
+
+    .menu { display:none; }
+
+    @media screen and ( max-width: 900px) {
+        root { padding: 60px 65px 0 65px; }
+    }
+
+    @media screen and ( max-width: 700px) {
+         root { padding: 20px 20px 0 20px; height:8vh }
+        .menu { display:unset; }
+        .restart { display:none; }
+        .newgame { display:none; }
+    }
+
+    @media screen and ( max-width: 500px) {    }
+                                                              
+
+</style>;

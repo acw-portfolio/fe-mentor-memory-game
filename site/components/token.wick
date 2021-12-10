@@ -1,15 +1,39 @@
 import m, { index, val, REVEALED, MATCHED } from "@model";
-import {getActiveGame} from "../scripts/game.ts";
+import {game, theme as t } from "@store";
 import glow from "@candlelib/glow";
-
-const game = getActiveGame();
+import {width} from "@session";
 const root = "@root";
 let half = game.grid_width / 2;
 let LOADED = false;
+let r = 0;
+let c = 0;
+const theme = t;
+const small_size = 65;
+
+const fa_targets = [
+    "fa-camera", "fa-basketball-ball", "fa-biking", "fa-car-side",
+    "fa-cat", "fa-bullhorn", "fa-cloud", "fa-concierge-bell",
+    "fa-couch", "fa-bus", "fa-bread-slice", "fa-grin",
+    "fa-heart", "fa-globe", "fa-horse", "fa-lemon",
+    "fa-lightbulb", "fa-moon", "fa-seedling", "fa-thumbtack",
+];
+
+
+function setSize(){
+if(width < 600){
+        let sz = half > 2?  width *0.16 : width *0.19;
+        root.style.top = (r * sz - half * sz) + "px";
+        root.style.left = (c * sz - half * sz) + "px";
+    }else{
+        let fs = half > 2?  95 : 105;
+        root.style.top = (r * fs - half * fs) + "px";
+        root.style.left = (c * fs - half * fs) + "px";
+    }
+}
 
 function ontransitionin(row, col, trs, anim) {
-    root.style.top = (row * 90 - half * 90) + "px";
-    root.style.left = (col * 90 - half * 90) + "px";
+    r = row; c = col;
+    setSize();
     const dur = Math.random() * 120 + 240;
     const tic = Math.random() * 120 + row * 80 + col * 80;
     anim({
@@ -23,29 +47,26 @@ function ontransitionin(row, col, trs, anim) {
     LOADED = true;
 }
 
-function onarrange(row, col, trs) {
-    root.style.top = (row * 90 - half * 90) + "px";
-    root.style.left = (col * 90 - half * 90) + "px";
-}
+function $(width) { setSize();}
 
 function ontransitionout(row, col, trs, anim) {
 
+
     const tic = Math.random() * 120 + row * 80 + col * 80;
+    
     anim({
             obj:root,
             opacity: [{tic:0,val:1}, {tic:200 + tic, val:0}],
              transform:[
-                {tic:0,val:`translateX(0)`},{tic:dur- 100 + tic,val:`translateX(${(Math.random()*1000) -500}px)`, eas:glow.easing.ease_out},
-                {tic:0,val:`translateY(0)`},{tic:dur- 100 + tic,val:`translateY(${(Math.random()*100) -50}px)`, eas:glow.easing.ease_out},
+                {tic:0,val:`scale(0)`},{tic:100 + tic,val:`translateX(${500}px)`, eas:glow.easing.ease_out},
+                {tic:0,val:`translateY(0)`},{tic:100 + tic,val:`translateY(${500}px)`, eas:glow.easing.ease_out},
             ] 
         })
 }
 
 async function click(){
-    if(!MATCHED){
-        game.revealToken(index)
+    if(!MATCHED)
         game.addMatch(index);
-    }
 }
 
 function $R(REVEALED) {
@@ -78,15 +99,18 @@ function $M(MATCHED) {
         root.classList.remove("MATCHED");
 }
 
-export default <div onclick=click> 
-    <span class=val>{val}</span>
+export default <div onclick=click >
+    <span class={theme == "icons"; "disabled" } class=val>{val}</span>
+    <span class={theme == "numbers"; "disabled"} class="val fa" class={true;fa_targets[val]}></span>
 </div>;
 
 <style>
     root {
+        display:flex;
+        justify-content:center;
+        align-items:center;
         user-select:none;
         font-size: 2.5em;
-        line-height:2em;
         position:absolute;
         font-weight:bold;
         width:82px;
@@ -98,6 +122,7 @@ export default <div onclick=click>
         z-index:0;
         transition: background-color 120ms, box-shadow 500ms;
         box-shadow: 0 0 2px rgba(0,0,0,0.2);
+        user-select: none;
     }
 
     root:hover {
@@ -107,7 +132,7 @@ export default <div onclick=click>
 
     root.REVEALED {
         background:#FDA214;
-        box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     root.MATCHED {
@@ -116,8 +141,16 @@ export default <div onclick=click>
     }
 
     span.val {
+        vertical-align:middle;
+        line-height:2em;
         display: none;
+        position:relative;
+        width:100%;
+        top:0;
+        left:0;
     }
+
+    
 
     root.REVEALED span.val {
         display: inline-block
@@ -130,5 +163,13 @@ export default <div onclick=click>
 
     root.REVEALED span.logo {
         display: none;
+    }
+
+    .disabled {
+        display:none !important
+    }
+
+    @media screen and ( max-width: 600px) {
+        root {width: 14vw; height: 14vw; font-size: 2em; }
     }
 </style>;

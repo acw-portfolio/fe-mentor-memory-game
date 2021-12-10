@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator" content="@candlelib/wick-0.16.1"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FE | Memory Game </title>
+    
+    <style id="wick-boiler-plate">
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+        position:absolute; 
+        top:0;
+        left:0; 
+        width:100%;
+        padding:0;
+        margin:0; border:none;
+    }
+    
+    li { list-style:none }
+    
+    a { text-decoration:none }
+    
+    </style>
+
+    <style id="wick-app-style">
+    
+                @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap") ;
+                
+                body{
+                    min-height:100vh
+                }
+                
+                .WcGDp3Cc3OrsCivg h1{
+                    font-size:4em;
+                    color:#ffffff;
+                    text-align:center;
+                    line-height:1em;
+                    margin:0px;
+                    margin-bottom:70px
+                }
+                
+                .WcGDp3Cc3OrsCivg{
+                    font-family:"Atkinson Hyperlegible";
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    top:0;
+                    left:0;
+                    width:100vw;
+                    height:100%;
+                    background-color:#152938;
+                    font-size:12px
+                }
+                
+                .WcGDp3Cc3OrsCivg .big{
+                    margin-top:40px
+                }
+                
+                body{
+                    background-color:#152938
+                }
+                
+                .radiate-init .WcGDp3Cc3OrsCivg{
+                    opacity:0
+                }
+                .Wk65gwwkKbnwDkbE{
+                    position:relative;
+                    box-sizing:border-box;
+                    font-size:1.6em;
+                    border-radius:2em;
+                    padding:9px 20px;
+                    border:none;
+                    color:#304859;
+                    font-weight:bolder;
+                    background-color:#dfe7ec;
+                    height:52px;
+                    margin:0;
+                    transition:background-color 200ms
+                }
+                
+                .Wk65gwwkKbnwDkbE.big{
+                    height:70px;
+                    font-size:2.67em
+                }
+                
+                .Wk65gwwkKbnwDkbE:hover,
+                .Wk65gwwkKbnwDkbE.active{
+                    cursor:pointer;
+                    background-color:#bcced9
+                }
+                
+                .Wk65gwwkKbnwDkbE.emphasis,
+                .Wk65gwwkKbnwDkbE.emphasis.active{
+                    color:#ffffff;
+                    background-color:#fda214
+                }
+                
+                .Wk65gwwkKbnwDkbE.emphasis:hover,
+                .Wk65gwwkKbnwDkbE.emphasis.active{
+                    cursor:pointer;
+                    background-color:#ffb84a
+                }
+                
+                .Wk65gwwkKbnwDkbE.white{
+                    color:#ffffff;
+                    background-color:#bcced9
+                }
+                
+                .Wk65gwwkKbnwDkbE.white:hover{
+                    background-color:#7191a5
+                }
+                
+                .Wk65gwwkKbnwDkbE.white.active{
+                    background-color:#304859
+                }
+                .Wwkyub6ikcPM7wvG{
+                    width:650px;
+                    transition:padding 200ms , width 200ms;
+                    background-color:#f2f2f2;
+                    border-radius:20px;
+                    padding:60px
+                }
+                
+                .Wwkyub6ikcPM7wvG h1{
+                    font-size:4em;
+                    text-align:center;
+                    line-height:1em;
+                    margin:20px;
+                    margin-top:0
+                }
+                
+                .Wwkyub6ikcPM7wvG h3{
+                    color:#7191a5;
+                    font-size:1.6em;
+                    margin:10px 0 20px
+                }
+                
+                .Wwkyub6ikcPM7wvG .ful{
+                    width:100%
+                }
+                
+                .Wwkyub6ikcPM7wvG .hlf{
+                    width:47%
+                }
+                
+                .Wwkyub6ikcPM7wvG .thr{
+                    width:31%
+                }
+                
+                .Wwkyub6ikcPM7wvG .qtr{
+                    width:22%
+                }
+                
+                .Wwkyub6ikcPM7wvG div:first-child h3{
+                    margin-top:0
+                }
+                
+                @media screen and (max-width:900px){
+                    .Wwkyub6ikcPM7wvG{
+                        font-size:10px
+                    }
+                    .Wwkyub6ikcPM7wvG h3{
+                        font-size:2em
+                    }
+                    .Wwkyub6ikcPM7wvG{
+                        width:500px
+                    }
+                }
+                
+                @media screen and (max-width:700px){
+                    .Wwkyub6ikcPM7wvG{
+                        padding:40px 20px
+                    }
+                }
+                
+                @media screen and (max-width:500px){
+                    .Wwkyub6ikcPM7wvG{
+                        width:350px
+                    }
+                }
+                .Ww1f62AiIaU4Cilb{
+                    width:100%;
+                    display:flex;
+                    justify-content:space-between
+                }
+    </style>
+
+    <style id="radiate">
+        .radiate-page {
+            position:absolute;
+            top:0;
+            left:0;
+        }
+
+        .radiate-hide {
+            opacity:0;
+        }
+
+        radiate-modals {
+            position:fixed;
+            top:0;
+            left:0;
+        }
+
+        radiate-modals iframe{
+            border: none;
+            width:100vh;
+            height:100vh;
+        }
+    </style>
+  </head>
+  <body>
+    <script> document.body.classList.toggle("radiate-init"); </script>
+
+    <div id="app" class="wk-c WcGDp3Cc3OrsCivg">
+      <nav class="wk-claim-0">
+        <h1 class="wk-claim-0">memory
+        </h1>
+        <nav class="wk-c Wwkyub6ikcPM7wvG wk-claim-0">
+          <div class="wk-claim-0">
+            <h3 class="wk-claim-0">Select Theme
+            </h3>
+            <div class="wk-c Ww1f62AiIaU4Cilb wk-claim-0">
+              <button class="true wk-c Wk65gwwkKbnwDkbE normal hlf white wk-claim-0">Numbers
+              </button>
+              <button class="wk-c Wk65gwwkKbnwDkbE normal hlf white wk-claim-0">Icons
+              </button>
+            </div>
+          </div>
+          <div class="wk-claim-0">
+            <h3 class="wk-claim-0">Number of Players
+            </h3>
+            <div class="wk-c Ww1f62AiIaU4Cilb wk-claim-0">
+              <button class="true wk-c Wk65gwwkKbnwDkbE qtr normal white wk-claim-0">1
+              </button>
+              <button class="wk-c Wk65gwwkKbnwDkbE qtr normal white wk-claim-0">2
+              </button>
+              <button class="wk-c Wk65gwwkKbnwDkbE qtr normal white wk-claim-0">3
+              </button>
+              <button class="wk-c Wk65gwwkKbnwDkbE qtr normal white wk-claim-0">4
+              </button>
+            </div>
+          </div>
+          <div class="wk-claim-0">
+            <h3 class="wk-claim-0">Grid Size
+            </h3>
+            <div class="wk-c Ww1f62AiIaU4Cilb wk-claim-0">
+              <button class="true wk-c Wk65gwwkKbnwDkbE normal hlf white wk-claim-0">4x4
+              </button>
+              <button class="wk-c Wk65gwwkKbnwDkbE normal hlf white wk-claim-0">6x6
+              </button>
+            </div>
+          </div>
+          <a href="/game/#1-1-4" class="wk-claim-0">
+            <button class="wk-c Wk65gwwkKbnwDkbE bold ful big emphasis wk-claim-0"> Start Game 
+            </button>
+          </a>
+        </nav>
+      </nav>
+    </div>
+
+    <script type=module id="wick-init-script">
+      
+				import {radiate} from "/src/pack.js";
+				radiate.default();
+    </script>
+    <script type=module id="wick-component-script">
+      
+    const w = wick;
+
+    w.appendPresets({"repo":[["MccdVAicX","/src/pack.js"],["MitLbOicp","/src/pack.js"],["McxRfrckM","/src/pack.js"]]});
+
+    
+      w.rt.rC(class WcGDp3Cc3OrsCivg extends w.rt.C{
+      
+          init( c ){
+      
+              this.al(7, "click", _=>this.ua(0, 1));
+      
+              this.al(8, "click", _=>this.ua(0, 2));
+      
+              this.al(12, "click", _=>this.ua(1, 1));
+      
+              this.al(13, "click", _=>this.ua(1, 2));
+      
+              this.al(14, "click", _=>this.ua(1, 3));
+      
+              this.al(15, "click", _=>this.ua(1, 4));
+      
+              this.al(19, "click", _=>this.ua(2, 4));
+      
+              this.al(20, "click", _=>this.ua(2, 6));
+      
+              this.ua(1, 1);
+      
+              this.ua(0, 1);
+      
+              this.ua(2, 4);
+          }
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0,c.u1,c.u2,this.b3];
+      
+              c.nlu = { theme:541065216, plyrs:541065217, grid:541065218 };
+          }
+      
+          b3( f, c ){
+      
+              if ( !this.check(0, 1, 2) ) return 0;
+      
+              this.sa(
+      
+                  21,
+      
+                  "href",
+      
+                  `/game/#${this[1]}-${this[0]}-${this[2]}`
+              );
+          }
+      
+          u0( f, c ){
+      
+              this.ch[2].update({ "active":this[0]==1 }, 2);
+      
+              this.ch[3].update({ "active":this[0]==2 }, 2);
+      
+              this.call(3, c);
+          }
+      
+          u1( f, c ){
+      
+              this.ch[5].update({ "active":this[1]==1 }, 2);
+      
+              this.ch[6].update({ "active":this[1]==2 }, 2);
+      
+              this.ch[7].update({ "active":this[1]==3 }, 2);
+      
+              this.ch[8].update({ "active":this[1]==4 }, 2);
+      
+              this.call(3, c);
+          }
+      
+          u2( f, c ){
+      
+              this.ch[10].update({ "active":this[2]==4 }, 2);
+      
+              this.ch[11].update({ "active":this[2]==6 }, 2);
+      
+              this.call(3, c);
+          }
+      
+          oTI( a, b, c, trs ){
+      
+              trs(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      opacity:[{ tic:0, val:0 },{ tic:50, val:0 },{ tic:300, val:1 }]
+                   }
+              );
+          }
+      
+          oTO( a, b, c, trs ){
+      
+              trs(
+      
+                  { 
+      
+                      obj:this.elu[0][0],
+      
+                      opacity:[{ tic:0, val:1 },{ tic:300, val:0 }]
+                   },
+      
+                  250
+              );
+          }
+      });
+      w.rt.rC(class Wk65gwwkKbnwDkbE extends w.rt.C{
+      
+          init_interfaces( c ){
+      
+              c.lookup_function_table = [c.u0];
+      
+              c.nlu = { active:549453824 };
+          }
+      
+          u0( f, c ){this.set_class(0, this[0], "active");}
+      });
+      w.rt.rC(class Wwkyub6ikcPM7wvG extends w.rt.C{
+      
+          });
+      w.rt.rC(class Ww1f62AiIaU4Cilb extends w.rt.C{
+      
+          });
+    
+    </script>
+  </body>
+</html>

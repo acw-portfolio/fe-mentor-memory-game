@@ -1,18 +1,20 @@
 {
   "name": "memory-game",
+  "type": "module",
   "version": "1.0.0",
   "main": "www/index.html",
   "author": "Anthony Weathersby <acweathersby.codes@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "npx candle.wick compile --output ./docs/ ./site/",
+    "build": "npx @candlelib/wick compile --output ./docs/ ./site/",
     "work": "npx candle.wick workspace ./site/"
   },
   "dependencies": {
     "@candlelib/glow": "*",
+    "@candlelib/log": "*",
     "@candlelib/spark": "^0.3.6",
     "@candlelib/wick": "*",
-    "@candlelib/log": "*"
+    "@fortawesome/fontawesome-free": "^5.15.4"
   }
 }

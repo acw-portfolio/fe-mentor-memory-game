@@ -1,17 +1,75 @@
-import gamefooter from "./components/gamefooter";
-import gameheader from "./components/gameheader";
-import board from "./components/board";
+import "@radiate";
+import {router, store} from "@api";
+import {game as stored_game, theme as stored_theme} from "@store";
+import {GAME_OVER} from "@model";
+import gamefooter from "./components/game_footer";
+import gameheader from "./components/game_header";
+import board from "./components/game_board";
 import {createGame, getActiveGame} from "./scripts/game.ts";
 
-let game = null;
+let game = null, game_id = "1-1-4";
 
+function ontrsdone(){
 
-function on_mount(){  game = getActiveGame() || createGame([],6,6); }
+    let hash =  router.page_url.hash;
 
-export default <div>
-    <gameheader model={game}/>
-    <board model={game}/>
-    <gamefooter model={game}/>
+    if(hash == "restart"){
+
+        hash = game_id;
+
+        const [ players, theme, grid ] = hash.split(/-/g).map(i=>parseInt(i));
+
+        stored_theme = theme == 2 ? "icons" : "numbers";
+
+        const limited_grid = Math.max(4, Math.min(6, Math.floor((grid+1) / 2)*2))
+
+        game = stored_game = createGame(Math.min(Math.max(1, players), 4),limited_grid,limited_grid); 
+
+    }else if(hash){
+
+        hash = hash|| game_id;
+
+        const [ players, theme, grid ] = hash.split(/-/g).map(i=>parseInt(i));
+
+        stored_theme = theme == 2 ? "icons" : "numbers";
+
+        const limited_grid = Math.max(4, Math.min(6, Math.floor(((grid || 0)+1) / 2)*2))
+
+        game = stored_game = createGame(Math.min(Math.max(1, players || 0), 4),limited_grid,limited_grid); 
+
+        game_id = hash;
+
+    } else {
+
+        stored_theme = "numbers";
+
+        game = stored_game = createGame(1,1,4);
+
+        game_id = "1-1-4"
+    }
+
+   router.setHashSilently(game_id);
+}
+
+function $game(game){ this.setModel(game); }
+
+function $GAME_OVER(GAME_OVER){
+    if(GAME_OVER){
+        //Transition to Game over modal
+        router.setLocation("/gameover");
+    }
+}
+
+export default <app id="app">
+    <head>
+        <title>FE | Memory Game</title>
+        <link href="/css/all.min.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <div class=game>
+        <gameheader model={game}/>
+        <board model={game}/>
+        <gamefooter model={game}/>
+    </div>
 </div>;
 
 <style>
@@ -22,5 +80,7 @@ export default <div>
         font-weight:normal;
         display:flex;
         flex-direction:column;
+        background-color:#F2F2F2;
+        min-height: 100vh;
     }
 </style>

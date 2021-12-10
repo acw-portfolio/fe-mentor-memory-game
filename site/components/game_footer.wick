@@ -1,0 +1,97 @@
+import {players, GAME_OVER, GAME_STARTED} from "@model";
+
+import glow from "@candlelib/glow";
+
+import player_label from "./player_label";
+
+import labeld from "./label.wick";
+
+import {getTimeStamp} from "../scripts/time.ts";
+
+let time = "0:00", moves = 0, interval = 0;
+
+function $players(players){
+    
+    clearInterval(interval);
+    
+   if(players.length == 1){
+       const player = players[0];
+        let root = Date.now();
+        player.time= 0;
+
+        interval = setInterval(()=>{
+            if(!GAME_STARTED) {
+                time = "0:00";
+                root = Date.now();
+                return;
+            };
+            player.time = Date.now() - root;
+            moves = players[0].moves;
+            const date = Date.now()
+
+            time = getTimeStamp(player.time)
+        }, 100);
+    }
+
+    glow({
+        obj:"@root",
+        opacity:[{tic:0, val:0},{tic:50, val:0},{tic:250, val:1}]
+    }).play()
+}
+
+function $game(GAME_OVER){
+    if(GAME_OVER)
+        clearInterval(interval);
+}
+
+function ontrsout(a,b,c,t){
+    clearInterval(interval);
+    t({
+        obj:"@root",
+        opacity:[{tic:0, val:1},{tic:250, val:0}]
+    })
+ }
+
+export default <footer>
+    <container class=multi class={players.length == 1;'disable'} data={players.length > 1 ? players : []}>
+        <player_label/>    
+    </container>
+    <div class=single class={players.length > 1;'disable'}>
+        <labeld text=Time subtext={time}/>
+        <labeld text=Moves subtext={moves}/>
+    </div>
+</footer>;
+
+<style>
+    root {
+        overflow:hidden;
+        position:relative;
+        width:100vw;
+        height:15vh;
+        box-sizing:border-box;
+        overflow:hidden;
+        opacity:0;
+    }
+
+    .multi, .single{
+        align-items:center;
+        justify-content: center;
+        position:relative;
+        top:0;
+        left:0;
+        margin:auto;
+        height:100;
+        max-width:960px;
+        display:flex;
+    }
+    .multi {
+        padding: 0 10px;
+        display:flex;
+    }
+
+    .disable {
+        display:none
+    }
+
+
+</style>;

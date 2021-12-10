@@ -1,0 +1,138 @@
+import "@radiate";
+import {game} from "@store"
+import normal_button from "./components/buttons/normal.wick";
+import menu from "./components/menu.wick";
+import row from "./components/buttons/buttonrow.wick";
+import result from "./components/result.wick";
+import {getTimeStamp} from "./scripts/time.ts";
+
+var results = [], result_name = "Unknown Results", result_subtext ="", restart_hash="1-1-4";
+
+function onin(a,b,c,trs){
+    
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:0}, {tic:300, val:0}, {tic:800, val:1}],
+    },{
+        obj:"@menu",
+        transform:[
+             {val:"translateY(50px)", tic:299}, 
+            {val:"translateY(0)", tic:600, eas:trs.easing.out}
+            ],
+        opacity:[{tic:0, val:0}, {tic:300, val:0}, {tic:600, val:1}],
+    },300);
+
+    if(game){
+
+        restart_hash = [game.players.length, 1, game.grid_width].join("-");
+
+        const num_of_players = game.players.length;
+        
+        if(num_of_players > 1){
+
+            const sorted_players = game.players
+                .sort((p1,p2)=>p2.matches-p1.matches);
+
+            const top_score = sorted_players[0].matches;
+
+            const winners = game.players.filter(p=>p.matches == top_score);
+
+            results = sorted_players.map(({name, matches})=>({
+                content: `Player ${name}${matches == top_score ?" (Winner!)" :""}`,
+                value: `${matches} Pair${matches == 1 ? " " : "s"}`,
+                emphasized: matches == top_score
+            }));
+
+            if(winners.length > 1){
+                result_name = "It's a tie!";
+            }else{
+                result_name = `Player ${winners[0].name} Wins!`;
+            }
+
+            result_subtext = "Game over! Here are the results...";
+
+          
+        }else{
+            result_name = "You did it!";
+            result_subtext = "Game over! Here’s how you got on...";
+            results = [{
+                content: "Time Elapsed", value: getTimeStamp(game.players[0].time)
+            },{
+                content: "Moves Taken", value: game.players[0].moves + " Moves"
+            }];
+        }
+    }else{
+        result_name = "Unknown Result";
+        results = [];
+    }
+}
+
+function onout(a,b,c,trs){
+    trs ({
+        obj:"@root",
+        opacity:[{tic:0, val:1}, {tic:300, val:0}]
+    }, 200)
+}
+
+export default <div id="app" class="modal">
+    <head>
+        <title>FE | Memory Game - Main Menu</title>
+    </head>
+    <menu class=menu>
+        <h1>{result_name}</h1>
+        <h3>{result_subtext}</h3>
+        <container class=results data={results}>
+            <result/>
+        </container>
+        <row class="full-row">
+            <a href={`/game/#${restart_hash}`} ><normal_button class="emphasis"> Restart </normal_button></a>
+            <a href="/"><normal_button > Setup New Game </normal_button></a>
+        </row>
+    </menu>
+</div>;
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+    root {
+        font-family: "Atkinson Hyperlegible";
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        width:100vw;
+        height:100vh;
+        background-color:#00000088;
+        font-size:12px;
+    }
+
+    h3 {  text-align:center; }
+
+    .results {
+        overflow-x:hidden;
+        margin-bottom:50px
+    }
+
+    body {
+        background-color:#152938;
+    }
+
+    .radiate-init root {
+        opacity:0
+    }
+
+    .full-row a { width :47%}
+    .full-row button { width :100%}
+
+    @media screen and ( max-width: 700px) {
+        h3 {  font-size:1.6em; }
+        .results { margin-bottom:0 }
+        .results > * { height:48px }
+        root { padding:20px; }
+        .full-row {  flex-direction:column }
+        .full-row a { width:100%; padding:10px 0; }
+        .full-row button { width :100%; height: 48px; font-size:2em}
+    }
+    
+
+</style>;

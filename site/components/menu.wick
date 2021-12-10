@@ -1,0 +1,49 @@
+export default <nav>
+</nav>;
+
+<style>
+    root {
+        width: 650px;
+        transition:width 200ms;
+        background-color:#F2F2F2;
+        border-radius:20px;
+        padding:60px;
+        transition:padding 200ms, width 200ms;
+    }
+
+    h1{
+        font-size:4em;
+        text-align:center;
+        line-height:1em;
+        margin:20px;
+        margin-top:0;
+    }
+
+    h3 {
+        color:#7191A5;
+        font-size:1.6em;
+        margin: 10px 0 20px;
+    }
+
+    .ful { width:100% }
+    .hlf { width:47% }
+    .thr { width:31% }
+    .qtr { width:22% }
+
+    div:first-child h3 { margin-top:0 }
+
+    @media screen and ( max-width: 900px) {
+        root { font-size:10px; }
+        h3 { font-size:2em }
+        root {width: 500px}
+    }
+
+    @media screen and ( max-width: 700px) {
+        root { padding:40px 20px; }
+    }
+
+    @media screen and ( max-width: 500px) {
+        root {width: 350px }
+    }
+</style>;
+
