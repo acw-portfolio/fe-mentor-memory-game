@@ -27,13 +27,13 @@ function setSize(){
         if(width < 800)
             val = height;
 
-        let sz = half > 2?  val *0.10 : val *0.12;
+        let sz = half > 2?  val *0.083 : val *0.12;
         root.style.top = (r * sz - half * sz) + "px";
         root.style.left = (c * sz - half * sz) + "px";
 
         if(half > 2){
-            root.style.width = val*0.09 + "px"
-            root.style.height = val*0.09 + "px"
+            root.style.width = val*0.070 + "px"
+            root.style.height = val*0.070 + "px"
         }else{
 
         root.style.width = val*0.105 + "px"
