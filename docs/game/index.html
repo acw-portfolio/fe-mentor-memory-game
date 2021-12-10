@@ -31,7 +31,7 @@
     
                 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap") ;
                 
-                .Ww36cBciolFiDiQt{
+                .WiXyqvkigsPs7cKx{
                     font-family:"Atkinson Hyperlegible";
                     font-weight:normal;
                     display:flex;
@@ -345,7 +345,7 @@
   <body>
     <script> document.body.classList.toggle("radiate-init"); </script>
 
-    <app id="app" class="wk-c Ww36cBciolFiDiQt">
+    <app id="app" class="wk-c WiXyqvkigsPs7cKx">
       <div class="game wk-claim-0">
         <header class="wk-c Wkrs3Dck7fcw9k9Y wk-claim-0">
           <div class="logo wk-claim-1">
@@ -420,7 +420,7 @@
     w.appendPresets({"repo":[["MccdVAicX","../src/pack.js"],["MitLbOicp","../src/pack.js"],["McxRfrckM","../src/pack.js"]]});
 
     
-      w.rt.rC(class Ww36cBciolFiDiQt extends w.rt.C{
+      w.rt.rC(class WiXyqvkigsPs7cKx extends w.rt.C{
       
           init( c ){this.ua(0, null); this.ua(2, "1-1-4");}
       
@@ -534,13 +534,24 @@
       
               if ( GAME_OVER ) {
       
-                  this.context.api.router.setLocation("./gameover");
+                  this.context.api.router.setLocation("../gameover");
               }
           }
       });
       w.rt.rC(class Wc3Xi16cLYq0cwGt extends w.rt.C{
       
-          init( c ){this.ua(2, "0:00"); this.ua(3, 0); this.ua(4, 0);}
+          init( c ){
+      
+              this.ch[0].update({ "text":"Time" }, 2);
+      
+              this.ch[1].update({ "text":"Moves" }, 2);
+      
+              this.ua(2, "0:00");
+      
+              this.ua(3, 0);
+      
+              this.ua(4, 0);
+          }
       
           init_interfaces( c ){
       
@@ -655,6 +666,15 @@
           }
       });
       w.rt.rC(class Wkrs3Dck7fcw9k9Y extends w.rt.C{
+      
+          init( c ){
+      
+              this.sa(5, "class", "restart emphasis");
+      
+              this.sa(7, "class", "newgame");
+      
+              this.sa(9, "class", "menu emphasis");
+          }
       
           oTI( a, b, c, trs ){
       

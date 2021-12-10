@@ -56,7 +56,7 @@ function $game(game){ this.setModel(game); }
 function $GAME_OVER(GAME_OVER){
     if(GAME_OVER){
         //Transition to Game over modal
-        router.setLocation("./gameover");
+        router.setLocation("../gameover");
     }
 }
 
