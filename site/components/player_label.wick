@@ -101,4 +101,11 @@ export default <div>
             display:none !important;
         }
     }
+
+
+    @media screen and (max-height:900px) {
+         div.label {
+            display:none !important;
+        }
+    }
 </style>;
