@@ -27,7 +27,7 @@ function setSize(){
         if(width < 800)
             val = height;
 
-        let sz = half > 2?  val *0.083 : val *0.12;
+        let sz = half > 2?  val *0.079 : val *0.12;
         root.style.top = (r * sz - half * sz) + "px";
         root.style.left = (c * sz - half * sz) + "px";
 
