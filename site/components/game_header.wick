@@ -32,9 +32,10 @@ export default <header>
         align-items:center;
         justify-content: space-between;
         position:relative;
-        width:100vw;
+        max-width:1010px;
+        margin:auto;
         height:15vh;
-        padding: 60px 165px 0 165px;
+        padding: 60px 65px 0 65px;
         box-sizing:border-box;
         transition: height 200ms, padding 200ms;
     }
@@ -68,7 +69,7 @@ export default <header>
         root { padding: 60px 65px 0 65px; }
     }
 
-    @media screen and ( max-width: 700px) {
+    @media screen and ( max-width: 800px) {
          root { padding: 20px 20px 0 20px; height:8vh }
         .menu { display:unset; }
         .restart { display:none; }

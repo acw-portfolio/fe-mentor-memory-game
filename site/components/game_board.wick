@@ -21,7 +21,7 @@ export default <main>
         display:block;
         position:relative;
         width:100vw;
-        height:70vh;
+        height:75vh;
 
         overflow:hidden;
     }
@@ -34,5 +34,9 @@ export default <main>
         width: 1px;
         height: 1px;
         position:relative;
+    }
+
+    @media screen and ( max-width: 800px) {
+         root {  height:80vh }
     }
 </style>;

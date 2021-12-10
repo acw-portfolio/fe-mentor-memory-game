@@ -39,17 +39,24 @@
                     background-color:#f2f2f2;
                     min-height:100vh
                 }
-                .Wc3Xi16cLYq0cwGt{
+                .Wkgq568ipzVHciOW{
                     overflow:hidden;
-                    position:relative;
+                    position:absolute;
+                    bottom:0;
                     width:100vw;
-                    height:15vh;
+                    height:170px;
+                    padding-top:25px;
                     box-sizing:border-box;
                     opacity:0
                 }
                 
-                .Wc3Xi16cLYq0cwGt .multi,
-                .Wc3Xi16cLYq0cwGt .single{
+                .Wkgq568ipzVHciOW .sp-label{
+                    width:250px;
+                    margin:0 20px
+                }
+                
+                .Wkgq568ipzVHciOW .multi,
+                .Wkgq568ipzVHciOW .single{
                     align-items:center;
                     justify-content:center;
                     position:relative;
@@ -61,71 +68,78 @@
                     display:flex
                 }
                 
-                .Wc3Xi16cLYq0cwGt .multi{
+                .Wkgq568ipzVHciOW .multi{
                     padding:0 10px;
                     display:flex
                 }
                 
-                .Wc3Xi16cLYq0cwGt .disable{
+                .Wkgq568ipzVHciOW .disable{
                     display:none
                 }
-                .WwSs6pciHPB28kNv{
+                
+                @media screen and (max-width:800px){
+                    .Wkgq568ipzVHciOW{
+                        height:120px
+                    }
+                }
+                .WwQ3NlCkw4SkAwVd{
                     display:flex;
                     align-items:center;
                     justify-content:space-between;
                     position:relative;
-                    width:100vw;
+                    max-width:1010px;
+                    margin:auto;
                     height:15vh;
-                    padding:60px 165px 0 165px;
+                    padding:60px 65px 0 65px;
                     box-sizing:border-box;
                     transition:height 200ms , padding 200ms
                 }
                 
-                .radiate-init .WwSs6pciHPB28kNv{
+                .radiate-init .WwQ3NlCkw4SkAwVd{
                     opacity:0
                 }
                 
-                .WwSs6pciHPB28kNv .logo{
+                .WwQ3NlCkw4SkAwVd .logo{
                     position:relative;
                     top:14px;
                     height:52px
                 }
                 
-                .WwSs6pciHPB28kNv .buttons{
+                .WwQ3NlCkw4SkAwVd .buttons{
                     position:relative
                 }
                 
-                .WwSs6pciHPB28kNv button{
+                .WwQ3NlCkw4SkAwVd button{
                     font-size:1.2em;
                     margin:10px
                 }
                 
-                .WwSs6pciHPB28kNv button:last-child{
+                .WwQ3NlCkw4SkAwVd button:last-child{
                     margin-right:0
                 }
                 
-                .WwSs6pciHPB28kNv .menu{
+                .WwQ3NlCkw4SkAwVd .menu{
                     display:none
                 }
                 
                 @media screen and (max-width:900px){
-                    .WwSs6pciHPB28kNv{
+                    .WwQ3NlCkw4SkAwVd{
                         padding:60px 65px 0 65px
                     }
                 }
                 
-                @media screen and (max-width:700px){
-                    .WwSs6pciHPB28kNv{
+                @media screen and (max-width:800px){
+                    .WwQ3NlCkw4SkAwVd{
                         padding:20px 20px 0 20px;
                         height:8vh
                     }
-                    .WwSs6pciHPB28kNv .menu{
+                    .WwQ3NlCkw4SkAwVd .menu{
                         display:unset
                     }
-                    .WwSs6pciHPB28kNv .restart{
+                    .WwQ3NlCkw4SkAwVd .restart{
                         display:none
                     }
-                    .WwSs6pciHPB28kNv .newgame{
+                    .WwQ3NlCkw4SkAwVd .newgame{
                         display:none
                     }
                 }
@@ -133,16 +147,16 @@
                 @media screen and (max-width:500px){
                     
                 }
-                .WiLtPX6wcjxvckiF{
+                .WwNTxvkk3szrkcHS{
                     perspective:600px;
                     display:block;
                     position:relative;
                     width:100vw;
-                    height:70vh;
+                    height:75vh;
                     overflow:hidden
                 }
                 
-                .WiLtPX6wcjxvckiF .board{
+                .WwNTxvkk3szrkcHS .board{
                     perspective:5500px;
                     transform-style:preserve-3d;
                     left:51%;
@@ -151,7 +165,70 @@
                     height:1px;
                     position:relative
                 }
-                .WcK4CcBkE6sP5wBp{
+                
+                @media screen and (max-width:800px){
+                    .WwNTxvkk3szrkcHS{
+                        height:80vh
+                    }
+                }
+                .WieFP2wwvszTkwTh{
+                    top:20px;
+                    width:250px;
+                    margin:0 20px
+                }
+                
+                .WieFP2wwvszTkwTh div.trinket{
+                    background-color:#fda214;
+                    width:30px;
+                    height:30px;
+                    position:absolute;
+                    left:calc(50% - 15px);
+                    top:-15px;
+                    transform:matrix(0.707,-0.707,0.707,0.707,0,0);
+                    z-index:-1
+                }
+                
+                .WieFP2wwvszTkwTh div.label{
+                    font-size:12px;
+                    position:absolute;
+                    bottom:-30px;
+                    color:#152938;
+                    font-weight:bold;
+                    text-transform:uppercase;
+                    letter-spacing:0.2em;
+                    text-align:center;
+                    width:100%;
+                    left:0;
+                    transition:opacity 300ms;
+                    opacity:0
+                }
+                
+                .WieFP2wwvszTkwTh div.label.ACTIVE{
+                    opacity:1;
+                    display:block
+                }
+                
+                @media screen and (max-width:800px){
+                    .WieFP2wwvszTkwTh{
+                        margin:0 5px
+                    }
+                    .WieFP2wwvszTkwTh div.label{
+                        display:none !important
+                    }
+                    .WieFP2wwvszTkwTh div.trinket{
+                        width:20px;
+                        height:20px;
+                        left:calc(50% - 10px);
+                        top:-10px
+                    }
+                }
+                
+                @media screen and (max-width:680px){
+                    .WieFP2wwvszTkwTh div.label{
+                        display:none !important
+                    }
+                }
+                .WkHTy8BwmuWvDkeZ{
                     display:flex;
                     align-items:center;
                     height:70px;
@@ -160,42 +237,53 @@
                     box-sizing:border-box;
                     justify-content:space-between;
                     padding:20px;
-                    width:250px;
-                    margin:0 20px;
                     transition:background 100ms , flex 200ms
                 }
                 
-                .WcK4CcBkE6sP5wBp .text{
+                .WkHTy8BwmuWvDkeZ .text{
                     color:#7191a5;
                     font-weight:700;
                     transition:color 100ms
                 }
                 
-                .WcK4CcBkE6sP5wBp .subtext{
+                .WkHTy8BwmuWvDkeZ .subtext{
                     color:#304859;
                     font-size:32px;
                     font-weight:700;
                     transition:color 100ms
                 }
                 
-                .WcK4CcBkE6sP5wBp.ACTIVE{
+                .WkHTy8BwmuWvDkeZ.ACTIVE{
                     background-color:#fda214;
                     color:#ffffff
                 }
                 
-                .WcK4CcBkE6sP5wBp.ACTIVE .text,
-                .WcK4CcBkE6sP5wBp.ACTIVE .subtext{
+                .WkHTy8BwmuWvDkeZ.ACTIVE .text,
+                .WkHTy8BwmuWvDkeZ.ACTIVE .subtext{
                     color:#ffffff
                 }
                 
-                @media screen and (max-width:680px){
-                    .WcK4CcBkE6sP5wBp{
-                        width:50%;
-                        justify-content:center;
+                @media screen and (max-width:800px){
+                    .WkHTy8BwmuWvDkeZ{
+                        align-items:flex-start;
                         flex-direction:column;
-                        padding:40px 10px;
                         font-size:1.1em;
-                        margin:0 10px
+                        padding:16px
+                    }
+                    .WkHTy8BwmuWvDkeZ .text{
+                        font-size:15px
+                    }
+                    .WkHTy8BwmuWvDkeZ .subtext{
+                        font-size:24px
+                    }
+                }
+                
+                @media screen and (max-width:500px){
+                    .WkHTy8BwmuWvDkeZ{
+                        justify-content:center;
+                        align-items:center;
+                        flex-direction:column;
+                        font-size:1.1em
                     }
                 }
                 .Wk65gwwkKbnwDkbE{
@@ -347,7 +435,7 @@
 
     <app id="app" class="wk-c WiXyqvkigsPs7cKx">
       <div class="game wk-claim-0">
-        <header class="wk-c WwSs6pciHPB28kNv wk-claim-0">
+        <header class="wk-c WwQ3NlCkw4SkAwVd wk-claim-0">
           <div class="logo wk-claim-1">
             <img width="153" src="../img/logo.svg" alt="memory" class="wk-claim-1"/>
           </div>
@@ -366,21 +454,21 @@
             </a>
           </div>
         </header>
-        <main class="wk-c WiLtPX6wcjxvckiF wk-claim-0">
+        <main class="wk-c WwNTxvkk3szrkcHS wk-claim-0">
           <div class="wk-ctr board wk-claim-1" data-wkctr="Wcx7b2kin6KHkwqx" data-wkctra="">
           </div>
         </main>
-        <footer class="wk-c Wc3Xi16cLYq0cwGt wk-claim-0">
-          <div class="wk-ctr multi wk-claim-1" data-wkctr="WcBLkmDwQw269iFo" data-wkctra="">
+        <footer class="wk-c Wkgq568ipzVHciOW wk-claim-0">
+          <div class="wk-ctr multi wk-claim-1" data-wkctr="WieFP2wwvszTkwTh" data-wkctra="">
           </div>
           <div class="single wk-claim-1">
-            <div class="wk-c WcK4CcBkE6sP5wBp wk-claim-1">
+            <div class="wk-c WkHTy8BwmuWvDkeZ sp-label wk-claim-1">
               <span class="text wk-claim-2"><w-b class="wk-claim-2">Time</w-b>
               </span>
               <span class="subtext wk-claim-2"><w-b class="wk-claim-2">0:00</w-b>
               </span>
             </div>
-            <div class="wk-c WcK4CcBkE6sP5wBp wk-claim-1">
+            <div class="wk-c WkHTy8BwmuWvDkeZ sp-label wk-claim-1">
               <span class="text wk-claim-2"><w-b class="wk-claim-2">Moves</w-b>
               </span>
               <span class="subtext wk-claim-2"><w-b class="wk-claim-2">0</w-b>
@@ -400,12 +488,18 @@
       </div>
     </template>
 
-    <template class="wk-c" id="WcBLkmDwQw269iFo">
-      <div class="wk-c WcK4CcBkE6sP5wBp WcK4CcBkE6sP5wBp WcBLkmDwQw269iFo">
-        <span class="text wk-claim-0"><w-b class="wk-claim-0"></w-b>
-        </span>
-        <span class="subtext wk-claim-0"><w-b class="wk-claim-0"></w-b>
-        </span>
+    <template class="wk-c" id="WieFP2wwvszTkwTh">
+      <div class="wk-c WieFP2wwvszTkwTh">
+        <div class="wk-c WkHTy8BwmuWvDkeZ wk-claim-0" id="label">
+          <span class="text wk-claim-1"><w-b class="wk-claim-1"></w-b>
+          </span>
+          <span class="subtext wk-claim-1"><w-b class="wk-claim-1"></w-b>
+          </span>
+        </div>
+        <div class="wk-claim-0">
+        </div>
+        <div class="label wk-claim-0"> current turn
+        </div>
       </div>
     </template>
     <script type=module id="wick-init-script">
@@ -538,11 +632,15 @@
               }
           }
       });
-      w.rt.rC(class Wc3Xi16cLYq0cwGt extends w.rt.C{
+      w.rt.rC(class Wkgq568ipzVHciOW extends w.rt.C{
       
           init( c ){
       
+              this.sa(3, "class", "sp-label");
+      
               this.ch[0].update({ "text":"Time" }, 2);
+      
+              this.sa(4, "class", "sp-label");
       
               this.ch[1].update({ "text":"Moves" }, 2);
       
@@ -665,7 +763,7 @@
               );
           }
       });
-      w.rt.rC(class WwSs6pciHPB28kNv extends w.rt.C{
+      w.rt.rC(class WwQ3NlCkw4SkAwVd extends w.rt.C{
       
           init( c ){
       
@@ -704,7 +802,7 @@
               );
           }
       });
-      w.rt.rC(class WiLtPX6wcjxvckiF extends w.rt.C{
+      w.rt.rC(class WwNTxvkk3szrkcHS extends w.rt.C{
       
           init_interfaces( c ){
       
@@ -717,9 +815,16 @@
       
           u1( f, c ){this.ctr[0].updateShift(this.model.grid_width);}
       });
-      w.rt.rC(class WcBLkmDwQw269iFo extends w.rt.C{
+      w.rt.rC(class WieFP2wwvszTkwTh extends w.rt.C{
       
-          init( c ){this.ua(1, false); w.rt.registerSession(this);}
+          init( c ){
+      
+              this.sa(1, "id", "label");
+      
+              this.ua(1, false);
+      
+              w.rt.registerSession(this);
+          }
       
           init_interfaces( c ){
       
@@ -754,11 +859,11 @@
       
               if ( !this.model ) return 0;
       
-              this.originator.update(
+              this.ch[0].update(
       
                   { 
       
-                      "text":this[3]>600?`Player ${this.model.name}`:`P${this.model.name}`
+                      "text":this[3]>500?`Player ${this.model.name}`:`P${this.model.name}`
                    },
       
                   2
@@ -769,7 +874,11 @@
       
               this.call(6, c);
       
-              this.originator.update({ "ACTIVE":this.model.ACTIVE }, 2);
+              this.ch[0].update({ "ACTIVE":this.model.ACTIVE }, 2);
+      
+              this.set_class(2, this.model.ACTIVE, "trinket");
+      
+              this.set_class(3, this.model.ACTIVE, "ACTIVE");
           }
       
           u1( f, c ){this.call(6, c);}
@@ -780,7 +889,7 @@
       
           u4( f, c ){
       
-              this.originator.update({ "subtext":this.model.matches }, 2);
+              this.ch[0].update({ "subtext":this.model.matches }, 2);
           }
       
           ____( c, ACTIVE, STARTED ){
@@ -791,7 +900,7 @@
       
                       { 
       
-                          obj:this.elu[0][0],
+                          obj:this.elu[1][0],
       
                           transform:[{ tic:0, val:"scale(1) rotate(10deg)" },{ tic:100, val:"scale(1.1) rotate(-5deg)" },{ tic:120, val:"scale(1) rotate(0)" }]
                        }
@@ -823,7 +932,7 @@
               this.ua(1, true);
           }
       });
-      w.rt.rC(class WcK4CcBkE6sP5wBp extends w.rt.C{
+      w.rt.rC(class WkHTy8BwmuWvDkeZ extends w.rt.C{
       
           init_interfaces( c ){
       

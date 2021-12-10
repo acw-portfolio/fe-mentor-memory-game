@@ -57,20 +57,27 @@ export default <footer>
         <player_label/>    
     </container>
     <div class=single class={players.length > 1;'disable'}>
-        <labeld text=Time subtext={time}/>
-        <labeld text=Moves subtext={moves}/>
+        <labeld class=sp-label text=Time subtext={time}/>
+        <labeld class=sp-label text=Moves subtext={moves}/>
     </div>
 </footer>;
 
 <style>
     root {
         overflow:hidden;
-        position:relative;
+        position:absolute;
+        bottom:0;
         width:100vw;
-        height:15vh;
+        height:170px;
+        padding-top:25px;
         box-sizing:border-box;
         overflow:hidden;
         opacity:0;
+    }
+
+    .sp-label {
+        width:250px;
+        margin:0 20px;
     }
 
     .multi, .single{
@@ -91,6 +98,12 @@ export default <footer>
 
     .disable {
         display:none
+    }
+
+    @media screen and (max-width:800px) {
+        root {
+            height:120px;
+        }
     }
 
 

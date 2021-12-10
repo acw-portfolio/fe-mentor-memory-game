@@ -9,7 +9,7 @@ let STARTED = false;
 function $(ACTIVE, STARTED){
     if(ACTIVE && STARTED){
         glow({
-            obj:"@root",
+            obj:"@labeldd",
             transform: [
                 {tic:0, val:"scale(1) rotate(10deg)"},
                 {tic:100, val:"scale(1.1) rotate(-5deg)"},
@@ -32,4 +32,73 @@ function ontrsin(row,col,_, trs){
     STARTED = true;
 }
 
-export default <labeldd text={ width > 600 ?  `Player ${name}` : `P${name}` } subtext={ matches } {ACTIVE}></labeldd>;
+export default <div>
+    <labeldd id=label text={ width > 500 ?  `Player ${name}` : `P${name}` } subtext={ matches } {ACTIVE}/>
+    <div class={ACTIVE; "trinket"}></div>
+    <div class=label class={ACTIVE; "ACTIVE"}> current turn</div>
+</div>;
+
+<style>
+
+    root{
+        top:20px;
+        width:250px;
+        margin: 0 20px;
+    }
+
+
+    div.trinket {
+        background-color: #FDA214;
+        width: 30px;
+        height: 30px;
+        position:absolute;
+        left: calc(50% - 15px);
+        top:-15px;
+        transform:rotate(45deg);
+        z-index:-1;
+    }   
+
+    div.label {
+        font-size:12px;
+        position:absolute;
+        bottom:-30px;
+        color:#152938;
+        font-weight:bold;
+        text-transform:uppercase;
+        letter-spacing: 0.2em;
+        text-align:center;
+        width:100%;
+        left:0;
+        transition:opacity 300ms;
+        opacity:0;
+    }
+
+    div.label.ACTIVE {
+        opacity:1;
+        display:block;
+    }
+
+    @media screen and (max-width:800px) {
+        root {
+            margin: 0 5px;
+        }
+
+         div.label {
+            display:none !important;
+        }
+
+        div.trinket {
+            width: 20px;
+            height: 20px;
+            left: calc(50% - 10px);
+            top:-10px;
+        }
+    }
+
+    @media screen and (max-width:680px) {
+
+        div.label {
+            display:none !important;
+        }
+    }
+</style>;

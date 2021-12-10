@@ -16,8 +16,6 @@ export default <div class={ACTIVE; "ACTIVE"}>
         box-sizing:border-box;
         justify-content: space-between;
         padding:20px;
-        width: 250px;
-        margin: 0 20px;
         transition:background 100ms, flex 200ms;
     }
 
@@ -44,9 +42,14 @@ export default <div class={ACTIVE; "ACTIVE"}>
         color:white;
     }
 
-    @media screen and ( max-width: 680px) {
-         root { 
-        width: 50%; justify-content: center;flex-direction: column; padding:40px 10px; font-size:1.1em; margin:0 10px  }
+    @media screen and ( max-width: 800px) {
+         root {  align-items: flex-start;flex-direction: column; font-size:1.1em; padding:16px }
+         .text { font-size: 15px;}
+         .subtext { font-size: 24px;}
+    }
+
+    @media screen and ( max-width: 500px) {
+         root {  justify-content: center; align-items: center;flex-direction: column; font-size:1.1em; }
     }
 
 </style>
